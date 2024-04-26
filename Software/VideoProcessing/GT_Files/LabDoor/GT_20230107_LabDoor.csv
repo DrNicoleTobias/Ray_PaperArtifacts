@@ -1,0 +1,17 @@
+20230107, LabDoor, 16:16:27,,4,pbin/no_event,door open
+20230107, LabDoor, 16:16:35,1,4,pbin/no_event,same event messing with the scope
+20230107, LabDoor, 16:24:00,1,1,out,
+20230107, LabDoor, 16:24:05,,,no_event,
+20230107, LabDoor, 16:29:24,1,1,in,
+20230107, LabDoor, 16:30:51,1,1,out,
+20230107, LabDoor, 16:31:05,1,1,out,
+20230107, LabDoor, 16:35:05,1,1,in,
+20230107, LabDoor, 16:35:32,1,1,in,
+20230107, LabDoor, 16:37:01,1,1,out,
+20230107, LabDoor, 16:38:11,1,1,in,
+20230107, LabDoor, 16:57:11,1,1,out,
+20230107, LabDoor, 16:59:42,1,1,in,
+20230107, LabDoor, 17:27:42,1,1,out,
+20230107, LabDoor, 17:28:42,1,1,in,
+20230107, LabDoor, 17:31:05,1,4,pbin/no_event,messing with fridge in lab
+20230107, LabDoor, 17:31:57,2,2,out/out,"two people walk out back to back, about 9 seconds last out closes the door"

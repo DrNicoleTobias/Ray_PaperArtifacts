@@ -1,0 +1,60 @@
+20221219, Hallway2, 07:01:30,in,
+20221219, Hallway2, 07:03:17,out,
+20221219, Hallway2, 07:05:05,in,
+20221219, Hallway2, 07:54:22,in,
+20221219, Hallway2, 08:48:38,in,"janitor walking slowly carrying a broom, otherwise normal"
+20221219, Hallway2, 08:49:53,out,
+20221219, Hallway2, 09:00:54,in,
+20221219, Hallway2, 09:04:31,out,
+20221219, Hallway2, 09:04:59,out,
+20221219, Hallway2, 09:05:49,in,
+20221219, Hallway2, 09:13:35,out,
+20221219, Hallway2, 09:15:51,in,
+20221219, Hallway2, 09:22:49,in,
+20221219, Hallway2, 09:28:47,out,"two people go out the door in relatively quick succession, a couple of seconds between each other, but both do it in about 5 seconds"
+20221219, Hallway2, 09:48:06,in,
+20221219, Hallway2, 09:49:17,out,two people go out the door together at the same time
+20221219, Hallway2, 09:51:34,in,
+20221219, Hallway2, 09:54:23,in,
+20221219, Hallway2, 09:56:38,in/linger/in,"man starts to come in, pauses at the trash can, then continues in, about 4 seconds"
+20221219, Hallway2, 09:59:39,out,
+20221219, Hallway2, 10:05:29,out,"student on phone, going out slowly, within event window"
+20221219, Hallway2, 10:10:10,out,Jacob
+20221219, Hallway2, 10:10:58,in,Jacob
+20221219, Hallway2, 10:11:52,out,Jacob
+20221219, Hallway2, 10:12:40,in,Jacob
+20221219, Hallway2, 10:13:36,out,Jacob
+20221219, Hallway2, 10:19:25,in,Jacob
+20221219, Hallway2, 10:22:08,in,
+20221219, Hallway2, 10:22:49,out,
+20221219, Hallway2, 10:24:19,pbout,"near pbout, janitor steps in to check level of trash then exits back on the out side, about 4 seconds"
+20221219, Hallway2, 10:29:51,pbout/no_event,slight shadow of someone casting a shadow off screen when they throw something away in the recycling (might not be caught by the sensor)
+20221219, Hallway2, 10:37:35,in,"two people come in in quick succession, one right after the other, both going in"
+20221219, Hallway2, 11:36:48,in,"janitor walking slowly carrying a broom, otherwise normal"
+20221219, Hallway2, 11:38:49,out,"janitor walking slowly carrying a broom, otherwise normal"
+20221219, Hallway2, 11:45:17,in/linger/pbin,"janitor walking in, lingering under doowway to clean scuff marks off the floor, then continues in, about 16 seconds"
+20221219, Hallway2, 11:45:35,pbin,likely janitor foot still cleaning from out of camera view
+20221219, Hallway2, 11:45:37,pbin/no_event,likely janitor foot still cleaning from out of camera view then leaving
+20221219, Hallway2, 11:46:15,out,
+20221219, Hallway2, 12:11:11,out,
+20221219, Hallway2, 12:13:55,in,
+20221219, Hallway2, 12:15:26,no_event/pbout,shadow from the start of the next event caught on very edge of video
+20221219, Hallway2, 12:15:30,in,
+20221219, Hallway2, 12:17:24,out,
+20221219, Hallway2, 12:18:58,out/linger/out,"man goes out, pauses by the trash can, then continues out, about 6 seconds"
+20221219, Hallway2, 12:20:50,in,
+20221219, Hallway2, 12:25:20,out,Jacob
+20221219, Hallway2, 12:45:37,in,
+20221219, Hallway2, 12:51:57,out,
+20221219, Hallway2, 13:48:27,out,
+20221219, Hallway2, 13:48:37,in,quickly
+20221219, Hallway2, 13:48:55,out,
+20221219, Hallway2, 13:57:49,in,"lady comes in with boxes, otherwise normal"
+20221219, Hallway2, 13:58:17,out,
+20221219, Hallway2, 14:01:58,in,
+20221219, Hallway2, 15:13:09,in,"two people come in in quick succession, one right after the other, both going in"
+20221219, Hallway2, 15:15:56,out,two people go out the door together at the same time
+20221219, Hallway2, 15:33:59,in,
+20221219, Hallway2, 15:54:48,out,"slowly carrying a big box, but otherwise normal"
+20221219, Hallway2, 16:09:52,out,
+20221219, Hallway2, 16:12:28,in,

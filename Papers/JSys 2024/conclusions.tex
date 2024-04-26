@@ -1,0 +1,13 @@
+\section{Conclusions}
+\label{sec:conclusions}
+
+This paper presents \sysname, a batteryless, energy-harvesting doorway-mounted sensor system for room level occupancy monitoring.
+To our knowledge, \sysname is the first batteryless occupancy-monitoring system in existence, and the first sensor device to simultaneously use its energy source---generated from opposing arrays of solar cells---both as a data signal for detecting doorway events and as an energy harvester that powers the system.
+\sysname is built around a novel, tunable, detection circuit that watches the energy harvesting signal while the processor sleeps.
+We deployed \sysname on \numDoors doorways and found that it can detect single persons moving through the doorways with a high overall detection accuracy of \SysAccuracy. Our results show that \sysname can differentiate between entry and exit of persons walking through the passageway for \dirAccuracy of the detected events.
+We also evaluated different factors that affect the performance of \sysname.  
+While some events, like lingers, still confound the current version of \sysname into generating false positives, we have demonstrated inherent differences between these events and true positives \ie someone walking through the door.
+This makes us confident that we can further improve the \sysname system to make it robust to such events.
+We deployed several of these sensors in five different locations for an in-the-wild experiment over a total of \ITWdays collectively and found that the system detects events well when there are activities happening around the sensor to detect, even in the face of challenging confounding cases like lingering outside of a classroom door and heavy traffic flow when class lets out.
+We evaluated \sysname microbenchmarks that demonstrate \sysname is low power, and efficient, able to harvest enough energy to power all activities, intermittently, while providing quality of application.
+\sysname represents a first step towards robust, reliable, and truly batteryless occupancy monitoring.

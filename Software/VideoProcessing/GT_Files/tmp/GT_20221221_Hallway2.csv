@@ -1,0 +1,10 @@
+20221221, Hallway2, 08:04:46,in,
+20221221, Hallway2, 08:06:34,out,
+20221221, Hallway2, 10:16:16,in,janitor with cart about 5 seconds
+20221221, Hallway2, 10:17:21,pbin/linger,janitor with cart stops just inside of the doorway
+20221221, Hallway2, 10:17:33,pbin/linger,"janitor with cart stops just inside of the doorway, mops a bit"
+20221221, Hallway2, 10:17:55,out,"janitor completes moving the cart to the out side of the door (this is a maybe if it was picked up correctly for sure, about 6 seconds)"
+20221221, Hallway2, 10:18:32,pbout/linger,"janitor comes to the doorway and mops, then exits out again (about 11 seconds)"
+20221221, Hallway2, 10:18:45,pbout,"very far pbout, just see the janitors mop head"
+20221221, Hallway2, 10:24:53,in,
+20221221, Hallway2, 10:28:33,out,
