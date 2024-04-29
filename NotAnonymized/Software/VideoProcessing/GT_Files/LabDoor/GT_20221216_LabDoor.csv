@@ -1,0 +1,23 @@
+20221216, LabDoor, 08:36:17,,,no_event,shadow from next event
+20221216, LabDoor, 08:36:19,,,no_event,shadow from next event
+20221216, LabDoor, 08:36:20,1,4,pbout/no_event/pbout,"pbout to door, then turns back for another pbout, about 9 seconds door closed"
+20221216, LabDoor, 10:05:26,,,no_event,shadow from next event
+20221216, LabDoor, 10:05:27,1,4,pbout/no_event,"mid pbout, can kinda see feet, door closed"
+20221216, LabDoor, 10:05:50,1,4,pbout/no_event,far pbout
+20221216, LabDoor, 11:06:07,1,3,open_door/in,Simeon opens door comes in about 9 seconds
+20221216, LabDoor, 11:20:35,1,4,pbout/no_event,"far pbout, door open"
+20221216, LabDoor, 11:31:58,1,4,pbout/no_event,"far pbout, door open"
+20221216, LabDoor, 12:13:17,1,1,out,Simeon
+20221216, LabDoor, 12:27:06,1,1,in,Simeon
+20221216, LabDoor, 12:27:40,1,1,out,Simeon
+20221216, LabDoor, 12:29:19,1,1,in,Simeon
+20221216, LabDoor, 14:06:24,1,4,pbout/no_event,"mid pbout, can kinda see feet"
+20221216, LabDoor, 14:06:39,1,4,pbout/no_event,far pbout
+20221216, LabDoor, 14:52:06,,4,pbout/no_event,far pbout
+20221216, LabDoor, 14:52:09,1,1,pbout,door open
+20221216, LabDoor, 15:15:29,1,3,out/close_door,Simeon closes door leaving about 9 seconds
+20221216, LabDoor, 15:17:38,1,4,pbout/no_event,Dr. Dean
+20221216, LabDoor, 15:17:45,,,no_event,Dean continuing to go into his office
+20221216, LabDoor, 15:59:05,1,4,pbout/no_event,Dr. Dean leaving office but towards stairs
+20221216, LabDoor, 17:32:28,1,4,pbout/no_event,far pbout
+20221216, LabDoor, 22:09:01,1,4,pbout/no_event,"mid pbout, can kinda see feet"

@@ -1,0 +1,43 @@
+NOTES
+    - must run python scripts as root in order
+      to see and connect to serial ports
+
+    - Naming convention:
+	    <board>_<sensors>_<describe test>.csv
+	    "ti_solar_doorclosed.csv"
+	    "ar_gesture_2walks.csv"
+
+    - Connect to higher ACM# port for the TI board
+
+    - This velcro is fucking STRONG so if you want
+      to detach the sensors/microcontrollers use the
+      tool located in the "ifixit" box that looks like
+      a dull scalpal. You can slide it inbetween the
+      velcro pieces until they come undone. Otherwise,
+      it is way more likely that the velcro pieces will
+      stay together and the sensor/board will come off
+      with all of the glue.
+
+INSTALLED PACKAGES and ENVIRONMENT VARIABLES
+    - vim and updated .vimrc
+    - updated .bashrc
+    - Created a "Scripts" folder in home where we can place
+      bash and python scripts for global access
+        - In order to run the python scripts without typing
+          "python2.x" you must add "#!/usr/bin/python" to the
+          first line of your python script.
+        - In order to get the python script to run with sudo
+          I also had to add the Scripts folder's $PATH to the
+          end of the secure_path variable in "sudo visudo".
+          This is because sudo actually uses a different path
+          than if you were running it as just the user.
+        - Because I'm just that lazy, I made a bash script to
+          wrap my python script so that I dont have to type
+          "sudo". Now, to run "serialToCSV.py" or "serialToTerminal.py"
+          simply type:
+            serialToCSV SolarCSV/nameOfOutputFile.csv
+            serialToCSV MultiCSV/nameOfOutputFile.csv
+                OR
+            serialToTerminal
+          Also, you should be able to tab complete it so you
+          dont have to type all of serialToCSV/serialToTerminal

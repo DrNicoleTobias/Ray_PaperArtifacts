@@ -1,0 +1,387 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template for JSys papers.
+%
+% History:
+%
+% - TEMPLATE for the Journal of Systems Research, prepared for submissions to
+%   JSys in 2020 by Vijay Chidambaram (University of Texas at
+%   Austin), Romain Jacob (ETH Zurich), and Vishwanath Seshagiri (Emory).
+%   This was originally the USENIX template,
+%   which was adapted with USENIX permission. Thanks!  
+%
+% - TEMPLATE for Usenix papers, specifically to meet requirements of USENIX '05.
+%   originally a template for producing IEEE-format articles using LaTeX.
+%   written by Matthew Ward, CS Department, Worcester Polytechnic Institute.
+%   adapted by David Beazley for his excellent SWIG paper in Proceedings, Tcl
+%   96. turned into a smartass generic template by De Clarke, with thanks to
+%       both the above pioneers. Use at your own risk. Complaints to /dev/null.
+%       Make it two column with no page numbering, default is 10 point.
+%
+% - Munged by Fred Douglis <douglis@research.att.com> 10/97 to separate the .sty
+%   file from the LaTeX source template, so that people can more easily include
+%   the .sty file into an existing document. Also changed to more closely follow
+%   the style guidelines as represented by the Word sample file.
+%
+% - Note that since 2010, USENIX does not require endnotes. If you want foot of
+%   page notes, don't include the endnotes package in the usepackage command,
+%   below.
+%
+% - This version uses the latex2e styles, not the very ancient 2.09 stuff.
+%
+% - Updated July 2018: Text block size changed from 6.5" to 7"
+%
+% - Updated Dec 2018 for ATC'19:
+%
+%   * Revised text to pass HotCRP's auto-formatting check, with
+%     hotcrp.settings.submission_form.body_font_size=10pt, and
+%     hotcrp.settings.submission_form.line_height=12pt
+%
+%   * Switched from \endnote-s to \footnote-s to match Usenix's policy.
+%
+%   * \section* => \begin{abstract} ... \end{abstract}
+%
+%   * Make template self-contained in terms of bibtex entires, to allow this
+%     file to be compiled. (And changing refs style to 'plain'.)
+%
+%   * Make template self-contained in terms of figures, to allow this file to be
+%     compiled. 
+%
+%   * Added packages for hyperref, embedding fonts, and improving appearance.
+%
+%   * Removed outdated text.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif\ifsubmit
+%\submitfalse
+\submittrue           % uncomment this line for submission.
+
+
+\newcount\usepng\usepng=1               % use PNG versions of figures (smaller file)
+
+
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{jsys}
+%\usepackage{jsys_camera_ready}
+
+\usepackage{balance} % For balanced columns on the last page
+\usepackage[normalem]{ulem}
+
+
+\usepackage{graphicx}  % for \includegraphics
+
+
+\ifsubmit
+\usepackage[final]{fixme}
+\else
+\usepackage[draft]{fixme}
+\fxsetup{
+    author=,
+    layout=inline,
+    theme=colorsig
+}
+\fi
+\newcommand{\xxx}{\fxwarning}
+
+
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+
+\usepackage{siunitx}
+%\usepackage{SIunits}
+
+
+\ifnum\usepng=1
+ \DeclareGraphicsExtensions{.png,.eps,.ps,.jpg}
+\else
+ \DeclareGraphicsExtensions{.ps,.eps,.png,.jpg}
+\fi
+
+\usepackage{ifpdf}
+\ifpdf
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\else
+\fi
+
+\usepackage{microtype}
+\usepackage{paralist}
+
+%stuff for better looking tables
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{dcolumn}
+\pdfcompresslevel=9       % highly compressed pdf
+
+\newlength{\thinline}
+\setlength{\thinline}{0.05em}
+\newlength{\thickline}
+\setlength{\thickline}{0.10em}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\newcolumntype{.}{D{.}{.}{-1}}
+
+\usepackage{enumitem} % to fiddle with enumerate spacing
+
+\usepackage{subcaption}
+\usepackage{xspace}
+% pretty captions: small text, bold figure title
+%\usepackage[bf]{caption}
+%\DeclareCaptionType{copyrightbox}
+%\renewcommand{\captionfont}{\normalsize}
+
+
+\newcommand{\headingg}[1]{\textbf{#1}}
+\newcommand{\term}[1]{\emph{#1}}
+\newcommand{\nowrapterm}[1]{\mbox{\emph{#1}}}
+\newcommand{\secref}[1]{\mbox{Section~\ref{#1}}}
+\newcommand{\plursecref}[1]{\mbox{Sections~{#1}}}
+\newcommand{\symsecref}[1]{\mbox{\S~\ref{#1}}}
+\newcommand{\plursymsecref}[1]{\mbox{\S\S~{#1}}}
+\newcommand{\figref}[1]{\mbox{Figure~\ref{#1}}}
+\newcommand{\tabref}[1]{\mbox{Table~\ref{#1}}}
+\newcommand{\tblref}[1]{\tabref{#1}}
+\newcommand{\algref}[1]{\mbox{Algorithm~\ref{#1}}}
+\newcommand{\listingref}[1]{\mbox{Listing~\ref{#1}}}
+
+% textual substitutions
+\newcommand{\etal}{\mbox{et al.}}
+\newcommand{\ie}{\textit{i.e.,}}
+\newcommand{\eg}{\textit{e.g.,}}
+
+%\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\iv}{I--\kern-.08emV\xspace}
+
+% No-indent paragraphs
+\newcommand{\noind}[0]{\vspace{5 pt} \noindent}
+\newcommand{\noindpar}[1]{\noind {\bf #1}}
+%\newcommand{\noindpar}[1]{\noind \textbf{\small{#1}}}
+
+\newcommand{\textoverline}[1]{$\overline{\mbox{#1}}$}
+
+% Macros for notes, comments, and todo.
+\ifsubmit
+  \newcommand{\colorcomment}[3]{\relax}
+  \newcommand{\greencomment}[2]{\relax}
+  \newcommand{\yellowcomment}[2]{\relax}
+  \newcommand{\cyancomment}[2]{\relax}
+  \newcommand{\bluecomment}[2]{\relax}
+  \newcommand{\redcomment}[2]{\relax}
+  \newcommand{\magentacomment}[2]{\relax}
+
+  \newcommand{\hey}[1]{\relax}
+  \newcommand{\bibtex}[1]{\relax}
+  \newcommand{\task}[1]{\relax}
+  \newcommand{\question}[1]{\relax}
+  \newcommand{\note}[1]{\relax}
+
+\else
+  % comment commands
+  % comments should be signed at the end with the initials of the comment writer.
+  \newcommand{\colorcomment}[3]{\par\noindent\textcolor{#1}{[{#2}: {#3}]}\par} % general case
+  \newcommand{\greencomment}[2]{\colorcomment{green}{#1}{#2}} % hard to read
+  \newcommand{\yellowcomment}[2]{\colorcomment{yellow}{#1}{#2}} % hard to read
+  \newcommand{\cyancomment}[2]{\colorcomment{cyan}{#1}{#2}} % hard to read
+  \newcommand{\bluecomment}[2]{\colorcomment{blue}{#1}{#2}}
+  \newcommand{\redcomment}[2]{\colorcomment{red}{#1}{#2}}
+  \newcommand{\magentacomment}[2]{\colorcomment{magenta}{#1}{#2}}
+
+  \newcommand{\hey}[1]{\textcolor{magenta}{[{#1}]}} % quick inline comment
+  \newcommand{\note}[1]{\magentacomment{Note}{#1}} % a paragraph comment.
+  \newcommand{\bibtex}[1]{\magentacomment{@bibtex}{#1}} % a reference that should go to bibtex
+  \newcommand{\task}[1]{\redcomment{Task}{#1}} % task the person with @name in the argument
+  \newcommand{\question}[1]{\bluecomment{Q?}{#1}} % ask a question
+\fi
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{myred}{rgb}{0.58,0,0.0}
+\lstset{
+    language=C,
+         emph={when},
+         basicstyle=\footnotesize\ttfamily,
+         numberstyle=\tiny,
+         numbersep=5pt,
+         tabsize=2,
+         extendedchars=true,
+         breaklines=true,
+                keywordstyle=\color{mymauve}\ttfamily\bfseries,
+                emphstyle=\color{mymauve}\ttfamily\bfseries,
+                stringstyle=\color{myred}\ttfamily,
+                commentstyle=\color{mygreen}\ttfamily,
+                morecomment=[l][\color{mygray}]{\#},
+         showspaces=false,
+         showtabs=false,
+         %xleftmargin=17pt,
+         %framexleftmargin=17pt,
+         %framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         escapeinside={\%*}{*)},
+         showstringspaces=false
+ }
+
+%\usepackage{caption}
+%\DeclareCaptionFont{white}{\color{white}}
+%\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\columnwidth}{\hspace{15pt}#1#2#3}}}
+%\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+%\setcopyright{acmcopyright} % if you give the rights to ACM
+%\acmDOI{...} % DOI - Insert your DOI below...
+%\acmISBN{...} % ISBN - Insert your conference/workshop's ISBN below...
+%\acmYear{2023} % Insert Publication year
+%\copyrightyear{2023} % Insert Copyright year (typically the same as above)
+%\acmPrice{15.00}
+%\acmConference[SenSys]{The 17th ACM Conference on Embedded Network Sensor Systems}{November 10-13, 2019}
+%{New York, New York, USA}
+%\acmJournal{TOSN}
+
+\hyphenation{WISP RFID CRFID CRFIDs RF volt-age}
+\newcommand{\sysnameraw}{Ray}
+\newcommand{\sysname}{\sysnameraw\xspace}
+\newcommand{\sysnames}{\sysnameraw{}s\xspace}
+\newcommand{\numExp}{881\xspace} %updated by Nicole 1/30
+\newcommand{\numDet}{881\xspace}
+\newcommand{\numDir}{849\xspace} %updated by Nicole 1/30
+\newcommand{\numDoors}{7\xspace}  %updated by Nicole 1/25
+\newcommand{\numPeople}{9\xspace}  %updated by Nicole 1/25 - need to double check this
+\newcommand{\SysAccuracy}{100\%\xspace} %updated by Nicole 1/25
+\newcommand{\dirAccuracy}{96.4\%\xspace} %updated by Nicole 1/25
+\newcommand{\minSeparation}{3-4 seconds\xspace}
+\newcommand{\ITWdays}{64 days\xspace}
+\newcommand{\ITWdeployedWaldos}{5\xspace}
+\newcommand{\ITWpeopleEvents}{xxx\xspace}
+\newcommand{\WaldoPWR}{wwPWR\xspace}
+\newcommand{\EnoceanPWR}{eeePWR\xspace}
+
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+%\newcommand{\syslongname}{\textbf{W}aldo, \textbf{A} \textbf{L}ow-power \textbf{D}oorjamb \textbf{O}ccupancy-tracker\xspace}
+%\newcommand{\sysname}{LumiJamb\xspace}
+%\newcommand{\syslongname}{\textbf{Lumi}nance based people tracking in the Door\textbf{Jamb}\xspace}
+%\newcommand{\sysname}{SolarJamb\xspace}
+%\newcommand{\syslongname}{\textbf{Solar} based people tracking in the Door\textbf{Jamb}\xspace}
+
+
+%\nocaptionrule % This removes the ugly line above table captions on SIGPLAN templates
+
+% Uncomment the following line if you want the columns of the last page equal in
+% size. But note that doing so may cause issues with some document-generating
+% tools.
+% \usepackage{flushend}
+
+% inlined bib file -> only for making the file compilable on its own.
+%-------------------------------------------------------------------------------
+\begin{filecontents}{\jobname.bib}
+%-------------------------------------------------------------------------------
+@Book{arpachiDusseau18:osbook, 
+  author =       {Arpaci-Dusseau, Remzi H. and Arpaci-Dusseau Andrea C.}, 
+  title =        {Operating Systems: Three Easy Pieces}, 
+  publisher =    {Arpaci-Dusseau Books, LLC}, 
+  year =         2015,
+  edition =      {1.00}, 
+  doi = 	{10.5070/SR31154815},}
+@InProceedings{waldspurger02, 
+  author =       {Waldspurger, Carl A.}, 
+  title =  	{Memory resource management in {VMware ESX} server}, 
+  booktitle =    {USENIX Symposium on Operating System Design and Implementation (OSDI)}, 
+  year =   	2002, 
+  pages =        {181--194}, 
+  url =	{https://www.usenix.org/legacy/event/osdi02/tech/waldspurger/waldspurger.pdf}}
+\end{filecontents}
+
+% enable this for the camera-ready version
+% \jsysfinaltrue
+
+
+% for ORCID
+\usepackage{orcidlink}
+%-------------------------------------------------------------------------------
+\begin{document}
+%-------------------------------------------------------------------------------
+
+%don't want date printed
+\date{}
+
+% make title bold and 14 pt font (Latex default is non-bold, 16 pt)
+\title{\sysname: Batteryless Occupancy Monitoring using Reflected Ambient Light}
+
+% for single author (just remove % characters)
+% ORCID links to two nobel laureates for now, please change
+
+
+
+
+\author{
+  {\textsc{Nicole Tobias}}\orcidlink{0000-0003-4895-6792}\\
+ Clemson University\\
+  rtobias@clemson.edu
+  \and
+  {\textsc{Harsh Desai}}\orcidlink{}\\
+  Carnegie Mellon University\\
+harshd@andrew.cmu.edu
+   \and
+  {\textsc{Arwa Alsubh}}\orcidlink{0000-0003-3912-8143s}\\
+  Umm AL-Qura University\\
+  amsubhi@uqu.edu.sa
+   \and
+  {\textsc{Calvin Moody}}\orcidlink{}\\
+  Facet Wealth\\
+  calvinmcm@gmail.com
+    \and
+  {\textsc{Josiah Hester}}\orcidlink{}\\
+  Georgia Institute of Technology\\
+  josiah@gatech.edu
+    \and
+  {\textsc{Jacob Sorber}}\orcidlink{}\\
+ Clemson University\\
+jsorber@clemson.edu
+} % end author
+
+
+\maketitle
+
+% Disable header and footer on the from page
+\thispagestyle{empty}
+
+
+% Disable header and footer on the from page
+%\thispagestyle{empty}
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+\input{introduction}
+\input{background}
+\input{system_design}
+\input{implementation}
+\input{eval}
+\input{related_work}
+\input{discussion}
+\input{conclusions}
+% ACKs only appear if anonymous flag is false for acmart.cls
+\begin{acks}
+\input{ack}
+\end{acks}
+%-------------------------------------------------------------------------------
+\begin{artifacts}
+\input{artifacts}
+\end{artifacts}
+
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\bibliographystyle{plainurl}
+\bibliography{persist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  LocalWords:  endnotes includegraphics fread ptr nobj noindent %  LocalWords:
+%pdflatex acks

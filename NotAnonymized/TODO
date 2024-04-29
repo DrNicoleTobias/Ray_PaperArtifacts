@@ -1,0 +1,38 @@
+- We NEED to take power readings of our components so that we can figure
+  out the power draw of our system and estimate its lifetime. I took some
+  over the weekend, and assuming I did it correctly, here are some figures:
+    - Solar cells generate ~1.6v up on the door
+    - Solar cells generate ~0.3 micro amps
+
+- Solar Cell with 330k resistor produces 700-800mV without blockage at 11am (sunny day). Drops down to ~680mV when someone walks through
+
+- Solar Cell with 1.2M resistor produces 950mV-1V without blockage at 11am (sunny day). Drops down to ~900mV
+
+- Solar Cell with 2M resistor behaves the same as the 1.2M resistor
+
+- 100k resistor gives 400mV per solar cell
+
+- We need to start looking into powering the system. A good starting point
+  would be creating a system powered by only 1 main capacitor. (i.e. the
+  solar cells will provide energy to the comparator for sensing as well
+  as providing energy to the capacitor which will then power the system)
+	- A potentional problem with this is that sensing requires that
+	  the power supply waver (like when someone blocks the solar cells)
+	  but to power the system we want a supply that doesn't waver (which
+	  is what will happen if you add a capacitor to the solar cells)
+	  So we need to figure out how to completely decouple the power and
+	  sensing or at the very least minimize their impacts on each other.	diode?
+
+- Read this paper on UFoP http://josiahhester.com/cv/files/sensys15ufop.pdf
+
+- Bother Josiah about making working UFoP boards because after we figure
+  out our 1 capacitor powered system we're going to want to make one
+  with several capacitors that power different sub groups of the system.
+
+- Entire system draws as low as 0.3 uA after resting for a few seconds, ~1.0-1.5 mA
+  after firing a few times, and as high as ~4.2 mA when constantly firing.
+  (Radio mode 7)
+
+- Dr. Sorber wants to look into making this work without the echo sensor, and an ambient light sensor instead.
+
+- No breakout for the light sensor. (none online either?)

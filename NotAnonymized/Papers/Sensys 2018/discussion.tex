@@ -1,0 +1,56 @@
+\section{Discussion \& Future Work}
+\label{sec:discussion}
+
+In this paper, we demonstrate that we can monitor how people use buildings without running wires, without structural renovations, and without batteries.
+Our evaluation has presented the performance of \sysname as a batteryless occupancy sensor, and we also have identified corner cases that might confound the current version of the system.
+This section describes our future plans in terms of making \sysname more robust and reliable.
+We also present some ideas for expansion of this project.
+
+\noindpar{Improving robustness and reliability:}
+\\\sysname in its current version depends on sudden changes in the solar panel outputs in a fairly binary manner.
+It triggers when there's change and doesn't when there isn't.
+This allows it to detect people walking through with high accuracy.
+However it becomes susceptible to false positives, as other events might also cause a sudden change in the solar panel, for example when someone walks by the side of the door.
+As discussed in \secref{sec:evaluation}, there is a visible difference between someone walking through a doorway and a false positive.
+One of our goals for future work is to add direct signal processing on the microcontroller so that it will be able to access the whole shape of the waveform, and will not be reliant on the binary nature of the detector interrupts.
+This will enable \sysname to be more successful in identifying people walking through the doorway with minimal false positives.
+
+\noindpar{Adaptability:}
+\\We plan to make the system more dynamic and flexible by providing adjustable thresholds to the detector circuit.
+This will equip \sysname with the ability to tune its sensitivity to problematic cases such as darker lighting conditions.
+Another way we aim to improve the performance and adaptibility of \sysname would be to make use of learning algorithms.
+Our goal is to use learning for identifying different events, separating the true positives from false ones, subsequently improving accuracy and precision.
+We will introduce confidence indicators so that even in cases where it is comparatively tougher to distinguish between those events, \sysname will be able to attach a confidence level to its prediction, broadening the range of events it can identify.
+This is a feasible goal considering the evident difference between those events.
+
+\noindpar{Network of Waldos:}
+\\\sysname is not meant to be a standalone system in that it's true potential is realized as a part of a wider network of similar sensors.
+Different Waldos could exchange information to monitor occupancy on a larger scale and also to improve individual performance.
+For example, if one sensor detects a large amount of traffic heading into a hallway, but none of the other sensors detect activity, it is likely that there might be some other factor that is confounding the first sensor and this knowledge could be used to refine the learning model.
+Having a network of such batteryless sensors could also enable the deployment of a more sophisticated, energy-efficient communication model than simply broadcasting information opportunistically.
+
+\noindpar{Additional sensors:}
+\\We also plan to expand the system in terms of sensing abilities by adding more sensors.
+These sensors could provide various types of information such as RGB data, which could be used to semi-identify the person walking through.
+This would help assign some uniqueness to each individual so that we can better track their travel through rooms in a building without gathering identifiable information that would require additional security considerations to be added to the system.
+We could also opportunistically use an ultrasonic range finder in moments of high illumination to detect the height of the person passing through.
+
+\sysname can be expanded in many different ways, as demonstrated by these ideas.
+
+
+%Communication-
+%currently all data is stored locally on the board and ideally we would want to be able to send the data to a basestation or central location to gain the overall benefit of making use of the room-level information that the \sysname sensor is collecting.  A network of these sensors would be necessary in a true deployment to gain a real understanding of the users and their room usage.  We are continuing to develop the system to allow for this greater flexibility and usefulness.  \fxnote{[Something like this??? -NT]}
+
+%Alternative sensors--
+%\sysname currently only uses an array of solar panels to collect energy and to gather the information necessary to determine if a person has passed through the doorway.  The system's accuracy and functionality could be improved by using additional and/or alternative sensors such as ultrasonic and RGB light sensors.  Detection is evaluated in our system only from the change in the signals that the solar panels are receiving. A change in typical color could not only be an indication of someone passing through the doorway but also a means of helping to semi-identify the person walking through.  This would help to determine some uniqueness of the individuals to better track their travel through rooms in a building without gathering identifying information that would require additional security considerations to be added to the system.  \fxnote{[Not sure which other sensors to reference-NT]}
+
+%height estimation ---
+%this can be accomplished with the ultrasonic sensors and possibly with the solar panels currently in the system alone... \fxnote{Need to elaborate with this- NT}
+
+%adaptation --- as environments change so will energy budgets.
+%We take a simple approach, that we expect to work for most indoor environments; however, within these environments there are still a great different in lighting
+%We plan to explore techniques for adapting sensing modalities to match current budgets and conditions.
+
+%recognition
+
+%\fxnote{Not sure where to talk about it. Maybe in System Design (or here), but we should address the question about other orientations. We could put \sysname on the side of the doorway and possibly harvest more energy. Or in the floor. In the floor, it would be harder to deploy, and people would step on it, but then you break the beam directly. Lots more energy, more wear and tear, possibly more difficult signal processing from different light configurations...people we just didn't do it. Maybe we will soon.}

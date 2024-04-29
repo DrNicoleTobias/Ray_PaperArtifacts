@@ -1,0 +1,477 @@
+12/9/22 0:18:13, Hallway1,1,1,out,
+12/9/22 0:18:44, Hallway1,1,1,in,
+12/9/22 0:20:10, Hallway1,1,1,out,
+12/9/22 0:20:35, Hallway1,1,1,in,
+12/9/22 0:21:04, Hallway1,1,1,out,
+12/9/22 0:21:32, Hallway1,1,1,in,Nicole carrying a ladder
+12/9/22 0:39:40, Hallway1,1,1,in,
+12/9/22 0:49:40, Hallway1,1,1,out,
+12/9/22 0:52:45, Hallway1,1,1,in,
+12/9/22 0:56:51, Hallway1,1,1,out,
+12/9/22 0:57:52, Hallway1,1,1,in,
+12/9/22 6:52:09, Hallway1,1,1,in,
+12/9/22 6:53:44, Hallway1,1,1,out,
+12/9/22 6:56:13, Hallway1,1,1,in,
+12/9/22 7:08:56, Hallway1,1,1,out,
+12/9/22 7:09:15, Hallway1,1,1,in,
+12/9/22 7:43:44, Hallway1,1,1,out,
+12/9/22 7:45:53, Hallway1,1,1,in,
+12/9/22 7:46:52, Hallway1,1,3,pbout/no_event,"only foot of next in event, might not catch but a shadow is casted"
+12/9/22 7:46:53, Hallway1,1,1,in,
+12/9/22 7:47:07, Hallway1,1,1,out,"out, but slowly looking up at the camera (grace)"
+12/9/22 7:54:47, Hallway1,1,1,out,
+12/9/22 8:20:37, Hallway1,1,1,out,
+12/9/22 8:39:06, Hallway1,1,1,in,
+12/9/22 8:39:34, Hallway1,1,1,out,
+12/9/22 8:40:36, Hallway1,1,1,in,
+12/9/22 8:45:32, Hallway1,1,1,in,
+12/9/22 8:48:21, Hallway1,1,1,out,
+12/9/22 8:56:42, Hallway1,1,1,in,
+12/9/22 8:57:40, Hallway1,1,3,pbout/in,kai goes into office
+12/9/22 9:00:24, Hallway1,1,3,in/linger,student to kai's office
+12/9/22 9:05:48, Hallway1,1,1,in,Sami comes in to office
+12/9/22 9:19:03, Hallway1,1,1,out,
+12/9/22 9:25:40, Hallway1,1,1,out,
+12/9/22 9:28:16, Hallway1,1,1,out,
+12/9/22 9:32:43, Hallway1,1,3,out/linger,"Sami leaves office then walks over to tutoring lab, about 7 seconds"
+12/9/22 9:33:21, Hallway1,1,1,in,
+12/9/22 9:37:41, Hallway1,1,1,out,
+12/9/22 9:43:16, Hallway1,1,1,out,
+12/9/22 9:45:47, Hallway1,1,1,in,
+12/9/22 9:48:38, Hallway1,1,1,in,
+12/9/22 9:57:47, Hallway1,1,1,in,student from last event exits in after closing the door
+12/9/22 10:03:36, Hallway1,1,3,linger,"kai opens door, changes lighting"
+12/9/22 10:21:05, Hallway1,1,1,in,
+12/9/22 10:23:47, Hallway1,1,1,in,
+12/9/22 10:24:02, Hallway1,1,1,out,
+12/9/22 10:30:44, Hallway1,1,1,in,
+12/9/22 10:33:05, Hallway1,1,1,out,
+12/9/22 10:35:02, Hallway1,1,1,pbout,sami lingering outside of the tutoring room
+12/9/22 10:36:02, Hallway1,1,3,curiosity,"sami walks under sensor from tutoring room, waves, then turns back to tutoring room"
+12/9/22 10:43:50, Hallway1,1,1,out,
+12/9/22 10:43:54, Hallway1,1,3,pbin/no_event,"Sami comes in to office and closes the door, 7 seconds"
+12/9/22 10:44:10, Hallway1,1,1,in,
+12/9/22 10:45:05, Hallway1,1,1,in,
+12/9/22 10:49:33, Hallway1,1,1,out,
+12/9/22 10:51:17, Hallway1,1,1,in,
+12/9/22 10:56:10, Hallway1,1,1,in,
+12/9/22 10:56:35, Hallway1,1,1,out,
+12/9/22 10:58:15, Hallway1,1,1,in,
+12/9/22 10:58:34, Hallway1,1,1,in,
+12/9/22 11:05:35, Hallway1,2,2,out/out,Sami and another person exit out together in quick succession
+12/9/22 11:09:42, Hallway1,1,1,out,
+12/9/22 11:18:44, Hallway1,1,1,in,
+12/9/22 11:22:35, Hallway1,1,1,out,
+12/9/22 11:23:17, Hallway1,1,1,in,
+12/9/22 11:50:06, Hallway1,1,1,in,
+12/9/22 11:52:08, Hallway1,1,1,in,
+12/9/22 11:59:22, Hallway1,1,1,in,
+12/9/22 12:17:19, Hallway1,1,1,out,
+12/9/22 12:24:44, Hallway1,1,1,out,
+12/9/22 12:26:48, Hallway1,1,1,out,
+12/9/22 12:30:51, Hallway1,1,1,in,
+12/9/22 12:31:37, Hallway1,1,1,out,
+12/9/22 12:32:10, Hallway1,1,1,in,
+12/9/22 12:44:41, Hallway1,1,1,in,
+12/9/22 12:45:04, Hallway1,1,1,out,
+12/9/22 12:49:08, Hallway1,1,1,out,
+12/9/22 12:50:34, Hallway1,1,1,in,
+12/9/22 13:09:38, Hallway1,1,1,out,
+12/9/22 13:27:28, Hallway1,1,1,in,
+12/9/22 14:05:39, Hallway1,1,1,out,
+12/9/22 14:38:02, Hallway1,1,1,out,
+12/9/22 15:33:36, Hallway1,1,1,out,
+12/9/22 17:41:47, Hallway1,1,1,in,
+12/9/22 18:13:06, Hallway1,1,1,out,to tutoring room
+12/9/22 18:53:27, Hallway1,1,1,in,
+12/9/22 18:54:29, Hallway1,1,1,out,to tutoring room
+12/9/22 21:11:23, Hallway1,1,1,in,
+12/9/22 21:37:08, Hallway1,1,1,out,
+12/9/22 21:46:16, Hallway1,1,1,in,
+12/10/22 17:52:51, Hallway1,1,1,in,
+12/11/22 16:35:14, Hallway1,1,1,in,
+12/11/22 20:21:24, Hallway1,1,1,in,
+12/12/22 1:24:43, Hallway1,1,1,in,
+12/12/22 8:09:12, Hallway1,1,1,out,
+12/12/22 8:10:18, Hallway1,1,1,in,
+12/12/22 8:10:47, Hallway1,1,1,out,
+12/12/22 8:11:52, Hallway1,1,1,in,
+12/12/22 8:12:36, Hallway1,1,1,out,
+12/12/22 8:17:17, Hallway1,1,1,in,
+12/12/22 9:43:21, Hallway1,1,3,in/linger,janitor passing slowly in for a good 15 seconds sweeping as he passes
+12/12/22 9:44:52, Hallway1,1,1,out,janitor passes back through and stops on edge of gt video view
+12/12/22 9:46:58, Hallway1,1,1,out,
+12/12/22 9:51:02, Hallway1,1,1,in,
+12/12/22 9:52:24, Hallway1,1,1,out,
+12/12/22 9:54:22, Hallway1,1,1,in,
+12/12/22 10:21:50, Hallway1,1,1,in,
+12/12/22 10:32:08, Hallway1,1,1,out,
+12/12/22 10:35:41, Hallway1,1,1,out,
+12/12/22 10:36:36, Hallway1,1,1,in,
+12/12/22 11:02:26, Hallway1,1,1,in,
+12/12/22 11:03:40, Hallway1,1,3,in/linger/in,"Elliott starts to come in then stops under the sensor and then proceeds in, about 8 seconds"
+12/12/22 11:18:03, Hallway1,1,1,out,
+12/12/22 11:19:03, Hallway1,1,1,in,
+12/12/22 11:20:06, Hallway1,1,1,out,
+12/12/22 11:20:34, Hallway1,1,1,in,
+12/12/22 11:21:03, Hallway1,1,1,out,
+12/12/22 11:22:43, Hallway1,1,1,in,
+12/12/22 11:22:52, Hallway1,1,1,out,
+12/12/22 11:25:05, Hallway1,1,1,in,
+12/12/22 11:27:10, Hallway1,1,1,out,
+12/12/22 11:27:39, Hallway1,1,1,in,
+12/12/22 11:41:29, Hallway1,1,1,out,
+12/12/22 11:42:19, Hallway1,1,1,in,
+12/12/22 11:49:46, Hallway1,1,1,out,
+12/12/22 11:59:00, Hallway1,1,1,in,
+12/12/22 12:14:10, Hallway1,1,1,in,
+12/12/22 12:15:38, Hallway1,1,1,out,
+12/12/22 12:17:45, Hallway1,1,1,out,
+12/12/22 12:22:06, Hallway1,1,1,in,
+12/12/22 12:36:26, Hallway1,1,1,out,
+12/12/22 12:37:52, Hallway1,1,1,in,
+12/12/22 13:07:32, Hallway1,1,1,out,
+12/12/22 13:09:11, Hallway1,1,1,in,
+12/12/22 13:09:32, Hallway1,1,1,in,
+12/12/22 13:09:54, Hallway1,1,1,out,
+12/12/22 13:11:19, Hallway1,1,3,uturn,in then switch back to out
+12/12/22 13:13:54, Hallway1,1,1,out,
+12/12/22 13:16:02, Hallway1,1,1,in,
+12/12/22 13:46:31, Hallway1,1,1,out,
+12/12/22 13:46:59, Hallway1,1,1,out,
+12/12/22 13:48:31, Hallway1,1,1,in,
+12/12/22 13:52:08, Hallway1,1,1,out,
+12/12/22 13:53:21, Hallway1,1,1,in,
+12/12/22 14:01:33, Hallway1,1,1,in,
+12/12/22 14:02:20, Hallway1,1,1,out,
+12/12/22 14:11:26, Hallway1,1,1,out,slow
+12/12/22 14:11:36, Hallway1,1,1,in,
+12/12/22 14:20:48, Hallway1,1,1,in,
+12/12/22 14:21:06, Hallway1,1,1,out,
+12/12/22 14:41:15, Hallway1,1,1,out,
+12/12/22 14:48:04, Hallway1,2,2,out/out,"two people walk out in succession, one a second after the other"
+12/12/22 14:50:18, Hallway1,2,2,in/in,"two people walk in in succession, one a second after the other"
+12/12/22 15:03:46, Hallway1,1,1,out,
+12/12/22 15:04:36, Hallway1,1,1,in,
+12/12/22 15:26:38, Hallway1,1,1,out,
+12/12/22 15:28:45, Hallway1,1,1,in,
+12/12/22 16:15:14, Hallway1,1,1,out,
+12/12/22 16:16:48, Hallway1,1,1,in,
+12/12/22 16:22:03, Hallway1,1,1,out,
+12/12/22 16:22:29, Hallway1,1,1,in,
+12/12/22 16:54:40, Hallway1,1,1,in,
+12/12/22 18:50:13, Hallway1,1,1,in,
+12/12/22 18:53:39, Hallway1,1,1,out,
+12/13/22 6:49:14, Hallway1,1,1,in,
+12/13/22 6:52:40, Hallway1,1,1,out,
+12/13/22 6:54:57, Hallway1,1,1,in,
+12/13/22 7:27:11, Hallway1,1,1,out,
+12/13/22 7:29:36, Hallway1,1,1,in,
+12/13/22 7:43:51, Hallway1,1,1,out,
+12/13/22 8:10:04, Hallway1,2,2,in/in,two people walk in together in quick succession one right after the next
+12/13/22 8:10:36, Hallway1,2,2,out/out,two people walk out together in quick succession one right after the next
+12/13/22 8:40:09, Hallway1,1,1,out,
+12/13/22 8:48:30, Hallway1,1,1,out,
+12/13/22 9:05:34, Hallway1,1,1,in,
+12/13/22 9:06:49, Hallway1,1,1,out,
+12/13/22 9:18:13, Hallway1,2,2,in/in,two people walk in together in quick succession one right after the next
+12/13/22 9:34:19, Hallway1,1,1,in,
+12/13/22 9:35:05, Hallway1,1,1,out,
+12/13/22 9:37:06, Hallway1,1,1,in,
+12/13/22 9:46:44, Hallway1,1,1,out,
+12/13/22 9:47:24, Hallway1,1,1,in,
+12/13/22 10:26:25, Hallway1,1,1,in,
+12/13/22 10:28:53, Hallway1,1,1,out,slowly
+12/13/22 10:29:06, Hallway1,1,3,in/linger,Janitor sweeping
+12/13/22 10:29:36, Hallway1,1,1,pbin,"Janitor sweeping, 8 secs"
+12/13/22 10:29:49, Hallway1,1,3,pbin/linger/out,"Janitor sweeping, about 28 seconds"
+12/13/22 10:30:18, Hallway1,1,1,pbout,Janitor sweeping
+12/13/22 10:42:05, Hallway1,1,1,out,
+12/13/22 10:45:40, Hallway1,1,1,in,slowly
+12/13/22 10:50:38, Hallway1,1,1,in,
+12/13/22 11:00:36, Hallway1,1,1,out,
+12/13/22 11:02:15, Hallway1,1,1,in,
+12/13/22 11:03:20, Hallway1,1,1,in,
+12/13/22 11:07:15, Hallway1,1,1,out,
+12/13/22 11:14:57, Hallway1,1,1,out,
+12/13/22 11:16:46, Hallway1,1,1,in,
+12/13/22 11:29:43, Hallway1,2,2,in/in,two people walk in together side by side
+12/13/22 11:30:27, Hallway1,1,1,out,
+12/13/22 11:31:52, Hallway1,1,3,pbin/no_event,shadow on the pbin side
+12/13/22 11:33:14, Hallway1,1,1,out,
+12/13/22 12:00:18, Hallway1,1,1,in,
+12/13/22 12:29:12, Hallway1,1,1,in,
+12/13/22 12:35:44, Hallway1,1,1,out,
+12/13/22 12:36:19, Hallway1,2,3,out/in,"out, followed by another close out, then an in happens, all in about 10 seconds"
+12/13/22 12:36:36, Hallway1,1,3,pbout/no_event,people standing outside of the office off camera
+12/13/22 12:37:15, Hallway1,2,2,out/out,two people walk out together in quick succession one right after the next
+12/13/22 12:38:25, Hallway1,1,1,in,
+12/13/22 12:49:36, Hallway1,1,1,out,
+12/13/22 12:52:00, Hallway1,1,1,in,
+12/13/22 13:10:51, Hallway1,1,1,in,
+12/13/22 13:14:53, Hallway1,1,1,out,
+12/13/22 13:15:49, Hallway1,1,1,in,
+12/13/22 13:16:16, Hallway1,1,1,out,
+12/13/22 13:18:21, Hallway1,1,1,in,
+12/13/22 13:21:33, Hallway1,1,1,out,
+12/13/22 13:25:52, Hallway1,1,1,in,
+12/13/22 13:36:15, Hallway1,1,1,out,
+12/13/22 13:38:17, Hallway1,1,1,out,
+12/13/22 13:45:05, Hallway1,1,1,out,
+12/13/22 13:46:35, Hallway1,1,1,in,
+12/13/22 13:55:03, Hallway1,1,3,in/linger/out,"grace starts to walking in, then stops and bends down then turns back to walk out, about 9 seconds"
+12/13/22 14:13:09, Hallway1,1,1,in,
+12/13/22 14:13:55, Hallway1,1,1,in,
+12/13/22 14:14:04, Hallway1,1,1,out,
+12/13/22 14:24:47, Hallway1,1,3,uturn,grace goes in almost completely but then switches and exits out
+12/13/22 14:30:53, Hallway1,1,1,in,
+12/13/22 14:31:02, Hallway1,1,1,out,
+12/13/22 14:38:52, Hallway1,1,1,out,
+12/13/22 14:41:01, Hallway1,1,1,in,
+12/13/22 14:41:09, Hallway1,1,1,out,
+12/13/22 14:43:29, Hallway1,1,1,in,
+12/13/22 14:43:57, Hallway1,1,1,out,
+12/13/22 15:01:53, Hallway1,1,1,out,
+12/13/22 15:03:17, Hallway1,1,1,in,
+12/13/22 15:07:52, Hallway1,1,1,in,
+12/13/22 15:35:28, Hallway1,1,1,out,
+12/13/22 15:37:39, Hallway1,1,1,out,
+12/13/22 15:38:09, Hallway1,1,1,in,
+12/13/22 15:47:46, Hallway1,1,1,in,
+12/13/22 15:53:42, Hallway1,1,1,out,
+12/13/22 16:24:14, Hallway1,1,1,in,
+12/13/22 16:26:34, Hallway1,1,1,out,
+12/13/22 16:32:42, Hallway1,1,1,out,
+12/13/22 16:37:27, Hallway1,1,1,out,
+12/13/22 16:41:12, Hallway1,1,1,out,
+12/13/22 16:41:18, Hallway1,1,3,uturn,starts to come into the scene then quickly turns around
+12/13/22 16:41:24, Hallway1,1,1,in,
+12/13/22 16:44:08, Hallway1,1,1,in,
+12/13/22 17:22:37, Hallway1,1,1,in,
+12/13/22 19:58:11, Hallway1,2,2,out/out,"two people walk out together in slow succession one right after the next, about 6 or so seconds"
+12/13/22 19:58:30, Hallway1,1,3,pbout/no_event,"nothing in camera, but shadows of someone just off camera on out side"
+12/13/22 19:58:31, Hallway1,2,2,in/in,"two people walk in together in slow succession one right after the next, about 6 seconds"
+12/13/22 21:27:03, Hallway1,1,1,out,
+12/13/22 21:48:57, Hallway1,1,1,in,
+12/14/22 5:41:48, Hallway1,1,1,out,
+12/14/22 7:45:41, Hallway1,1,1,in,in slowly
+12/14/22 7:53:56, Hallway1,1,1,out,
+12/14/22 8:09:26, Hallway1,1,3,in/linger/in,"Janitor comes in, stands under the sensor to sweep then continues in, about 7 seconds"
+12/14/22 8:09:47, Hallway1,1,3,pbin/out,"Janitor comes in, stands under the sensor to sweep then continues in, about 7 seconds"
+12/14/22 8:59:54, Hallway1,1,1,in,
+12/14/22 9:48:26, Hallway1,1,1,out,
+12/14/22 9:49:22, Hallway1,1,1,in,
+12/14/22 9:50:41, Hallway1,1,1,out,
+12/14/22 9:54:48, Hallway1,1,1,in,
+12/14/22 10:01:36, Hallway1,1,1,in,
+12/14/22 10:15:52, Hallway1,2,2,in/in,"two people walk in together, one after the other with about a second between"
+12/14/22 10:16:48, Hallway1,1,1,out,
+12/14/22 10:18:19, Hallway1,1,1,in,
+12/14/22 10:35:33, Hallway1,1,3,out/linger,Pradip stopping to look for Kai
+12/14/22 10:44:17, Hallway1,1,3,pbin/no_event,
+12/14/22 10:44:46, Hallway1,1,1,out,
+12/14/22 10:47:51, Hallway1,1,1,in,
+12/14/22 10:53:18, Hallway1,1,1,out,
+12/14/22 11:01:09, Hallway1,1,1,in,
+12/14/22 11:29:48, Hallway1,1,1,in,
+12/14/22 11:36:44, Hallway1,1,1,out,
+12/14/22 11:38:52, Hallway1,1,1,in,
+12/14/22 12:01:55, Hallway1,1,1,out,
+12/14/22 12:05:07, Hallway1,1,1,out,
+12/14/22 12:05:57, Hallway1,1,1,in,
+12/14/22 12:08:50, Hallway1,1,1,out,
+12/14/22 12:10:51, Hallway1,2,2,in/in,"two people walk in together, one after the other with about a second between"
+12/14/22 12:34:48, Hallway1,1,1,out,
+12/14/22 12:44:48, Hallway1,1,1,in,
+12/14/22 13:39:17, Hallway1,1,1,out,
+12/14/22 13:45:47, Hallway1,1,1,in,
+12/14/22 14:35:05, Hallway1,1,1,in,
+12/14/22 15:11:04, Hallway1,1,3,out/linger/out,goes out then pauses on the out side
+12/14/22 15:14:16, Hallway1,1,1,in,
+12/14/22 15:22:39, Hallway1,1,1,out,
+12/14/22 15:22:50, Hallway1,1,1,in,
+12/14/22 15:59:58, Hallway1,1,1,out,
+12/14/22 16:01:11, Hallway1,1,1,in,
+12/14/22 16:02:03, Hallway1,1,1,out,
+12/14/22 16:04:08, Hallway1,1,1,in,
+12/14/22 16:09:17, Hallway1,1,1,out,
+12/14/22 16:41:43, Hallway1,1,1,out,
+12/14/22 16:42:08, Hallway1,1,1,in,
+12/14/22 16:44:01, Hallway1,1,1,in,
+12/14/22 16:50:02, Hallway1,1,1,out,
+12/14/22 16:50:29, Hallway1,1,1,in,
+12/14/22 16:50:55, Hallway1,1,1,out,
+12/14/22 16:51:23, Hallway1,1,1,in,
+12/14/22 16:51:59, Hallway1,1,1,out,
+12/14/22 16:52:25, Hallway1,1,1,in,
+12/14/22 16:52:51, Hallway1,1,1,out,
+12/14/22 16:53:20, Hallway1,1,1,in,
+12/14/22 17:02:03, Hallway1,1,1,out,
+12/14/22 17:03:23, Hallway1,1,1,in,
+12/14/22 17:33:40, Hallway1,1,1,out,
+12/14/22 17:34:11, Hallway1,1,1,in,
+12/14/22 17:44:55, Hallway1,1,1,in,
+12/14/22 23:41:56, Hallway1,1,1,out,
+12/14/22 23:54:50, Hallway1,1,1,in,
+12/15/22 6:59:59, Hallway1,1,1,in,
+12/15/22 7:02:59, Hallway1,1,1,out,
+12/15/22 7:05:41, Hallway1,1,1,in,
+12/15/22 8:13:03, Hallway1,,,in/linger/in,"janitor in, pauses to sweep, then exits about 7 seconds"
+12/15/22 8:13:45, Hallway1,,,out/linger/out,"janitor out, pauses to sweep, then exits about 8 seconds"
+12/15/22 8:20:33, Hallway1,,1,out,
+12/15/22 8:27:37, Hallway1,,1,in,
+12/15/22 8:29:54, Hallway1,,1,out,
+12/15/22 8:31:46, Hallway1,,1,in,
+12/15/22 9:05:47, Hallway1,,1,in,Sami comes to office
+12/15/22 9:05:58, Hallway1,,,pbin/no_event,Sami lingers at door
+12/15/22 9:06:06, Hallway1,,,pbin/no_event,Sami lingers at door
+12/15/22 9:06:43, Hallway1,,1,out,Sami exits out
+12/15/22 9:08:26, Hallway1,,1,in,Sami comes back to office
+12/15/22 9:08:30, Hallway1,,,pbin/no_event,Sami lingers at door
+12/15/22 9:08:33, Hallway1,,,pbin/no_event,Sami lingers at door
+12/15/22 9:40:04, Hallway1,,1,in,
+12/15/22 9:50:48, Hallway1,,1,out,
+12/15/22 9:53:12, Hallway1,,1,in,
+12/15/22 9:57:36, Hallway1,,1,out,to tutoring lab
+12/15/22 9:57:46, Hallway1,,,no-event,small light flicker
+12/15/22 9:57:50, Hallway1,,1,out,to tutoring lab
+12/15/22 9:58:45, Hallway1,,,pbin/no_event,Sami opens door and leaves office
+12/15/22 9:58:47, Hallway1,,,pbin/no_event,Sami shadow exits
+12/15/22 9:59:38, Hallway1,,1,out,to tutoring lab
+12/15/22 10:02:38, Hallway1,,,pbin/no_event,Sami back in office
+12/15/22 10:02:43, Hallway1,,,pbin/no_event,Sami out of office
+12/15/22 10:03:56, Hallway1,,,pbin/no_event,Sami back in office
+12/15/22 10:09:58, Hallway1,,,pbin/no_event,Sami closes door
+12/15/22 10:10:43, Hallway1,,1,in,from tutoring room
+12/15/22 10:19:08, Hallway1,,1,out,to tutoring lab
+12/15/22 10:57:03, Hallway1,,1,in,
+12/15/22 10:57:48, Hallway1,,1,out,
+12/15/22 10:57:52, Hallway1,,,no-event,tiny bit of shadow from prior event
+12/15/22 10:59:02, Hallway1,,1,out,
+12/15/22 11:00:16, Hallway1,,1,in,
+12/15/22 11:09:55, Hallway1,1,3,pbin/no_event,Sami office crap
+12/15/22 11:10:31, Hallway1,1,1,in,
+12/15/22 11:12:00, Hallway1,1,1,in,
+12/15/22 11:12:20, Hallway1,1,1,in,
+12/15/22 11:12:31, Hallway1,1,1,in,from tutoring room
+12/15/22 11:13:41, Hallway1,1,1,out,
+12/15/22 11:15:46, Hallway1,1,1,in,
+12/15/22 11:17:46, Hallway1,1,1,out,
+12/15/22 13:07:12, Hallway1,1,3,pbout/linger/in,person walks up to sensor and stops to look at it
+12/15/22 13:07:58, Hallway1,1,1,out,
+12/15/22 13:23:08, Hallway1,1,1,in,
+12/15/22 13:24:53, Hallway1,1,1,in,
+12/15/22 13:28:52, Hallway1,1,1,out,
+12/15/22 13:31:00, Hallway1,1,1,out,carrying long light bulbs
+12/15/22 13:54:19, Hallway1,1,1,in,
+12/15/22 14:02:17, Hallway1,1,1,in,
+12/15/22 14:13:39, Hallway1,1,1,out,
+12/15/22 14:14:08, Hallway1,1,3,uturn,in then a quick swithcback to the tutoring lab
+12/15/22 14:14:15, Hallway1,1,1,in,
+12/15/22 14:14:55, Hallway1,1,1,out,
+12/15/22 14:17:51, Hallway1,1,1,out,
+12/15/22 14:18:12, Hallway1,1,1,in,
+12/15/22 14:19:42, Hallway1,1,3,pbin/no_event,Sami office crap
+12/15/22 14:20:03, Hallway1,1,1,out,Sami leaves
+12/15/22 14:22:56, Hallway1,1,1,out,
+12/15/22 14:25:29, Hallway1,1,1,out,
+12/15/22 14:29:43, Hallway1,1,1,in,
+12/15/22 14:47:48, Hallway1,1,3,pbin/no_event/linger,Some person stands by Sami's door
+12/15/22 15:02:46, Hallway1,1,1,out,
+12/15/22 15:03:02, Hallway1,1,3,in/linger,person enters and finds bench and lingers for 15 minutes
+12/15/22 16:02:42, Hallway1,1,1,out,
+12/15/22 16:30:08, Hallway1,1,1,out,
+12/15/22 16:30:33, Hallway1,1,1,in,
+12/15/22 16:32:48, Hallway1,1,1,out,
+12/15/22 16:34:06, Hallway1,1,1,in,
+12/15/22 16:34:35, Hallway1,1,1,out,
+12/15/22 16:37:12, Hallway1,1,1,in,
+12/15/22 16:46:30, Hallway1,1,1,out,
+12/15/22 16:48:56, Hallway1,1,1,in,
+12/15/22 16:51:40, Hallway1,1,1,out,Arwa leaving
+12/15/22 17:06:37, Hallway1,1,3,pbin/no_event,shadow from a far pbin
+12/15/22 18:31:53, Hallway1,1,1,in,
+12/15/22 18:53:33, Hallway1,1,1,out,
+12/15/22 19:11:12, Hallway1,1,1,in,
+12/16/22 8:36:06, Hallway1,1,1,in,
+12/16/22 8:36:26, Hallway1,1,1,out,
+12/16/22 9:54:15, Hallway1,1,1,in,Sami coming into his office
+12/16/22 9:54:40, Hallway1,1,3,out/in,"Sami leaving his office, exiting out, then standing under the sensor and then changing direction"
+12/16/22 9:54:52, Hallway1,1,1,out,
+12/16/22 10:16:42, Hallway1,1,1,in,Sami coming into his office
+12/16/22 11:05:50, Hallway1,1,1,in,
+12/16/22 11:10:37, Hallway1,1,1,out,Sami leaving his office
+12/16/22 12:18:53, Hallway1,1,1,in,
+12/16/22 12:19:58, Hallway1,1,1,out,
+12/16/22 12:21:48, Hallway1,1,1,in,
+12/16/22 12:27:42, Hallway1,1,1,out,
+12/16/22 12:29:05, Hallway1,1,1,in,
+12/16/22 14:22:30, Hallway1,1,3,in/linger/out,"Janitor comes in pauses under the sensor then turns to exit out, about 7 seconds"
+12/16/22 14:24:04, Hallway1,1,1,out,
+12/16/22 14:25:57, Hallway1,1,1,in,
+12/16/22 14:36:48, Hallway1,1,1,in,
+12/16/22 14:52:29, Hallway1,1,1,out,
+12/16/22 14:52:51, Hallway1,1,1,in,
+12/16/22 14:55:44, Hallway1,1,1,in,
+12/16/22 15:15:37, Hallway1,1,1,out,
+12/16/22 15:17:26, Hallway1,1,1,in,
+12/16/22 15:32:56, Hallway1,1,1,out,
+12/16/22 15:35:04, Hallway1,1,1,in,
+12/16/22 15:36:49, Hallway1,1,1,pbin,
+12/16/22 15:36:59, Hallway1,1,3,pbin/no_event/linger,"Sami at his office, standing at the door"
+12/16/22 15:38:30, Hallway1,2,2,out/out,"two people leave in quick succession, one after the other"
+12/16/22 17:32:28, Hallway1,1,1,out,
+12/16/22 22:09:03, Hallway1,1,1,out,
+12/19/22 7:01:34, Hallway1,1,1,in,
+12/19/22 7:03:05, Hallway1,1,1,out,
+12/19/22 7:05:10, Hallway1,1,1,in,
+12/19/22 8:49:03, Hallway1,1,1,in,
+12/19/22 8:49:38, Hallway1,1,1,out,
+12/19/22 9:13:25, Hallway1,1,1,out,
+12/19/22 9:15:59, Hallway1,1,1,in,
+12/19/22 9:51:51, Hallway1,1,1,in,
+12/19/22 10:04:41, Hallway1,1,1,out,"student traveling slowly, about 6 seconds"
+12/19/22 10:10:00, Hallway1,1,1,out,Jacob
+12/19/22 10:11:06, Hallway1,1,1,in,
+12/19/22 10:11:42, Hallway1,1,1,out,
+12/19/22 10:12:48, Hallway1,1,1,in,
+12/19/22 10:13:26, Hallway1,1,1,out,
+12/19/22 10:19:32, Hallway1,1,1,in,
+12/19/22 10:37:45, Hallway1,2,2,in/in,"two people in quick succession, one just behind the other"
+12/19/22 10:54:20, Hallway1,1,3,pbin/no_event,shadow being cast on the in side
+12/19/22 10:54:23, Hallway1,1,3,pbin/linger,"Sami going into office, last event is a part of this"
+12/19/22 11:37:18, Hallway1,1,3,in/pbin/linger,janitor coming in then stoping on the pbin side to sweep
+12/19/22 11:37:58, Hallway1,1,1,out,
+12/19/22 12:18:46, Hallway1,1,1,out,
+12/19/22 12:21:03, Hallway1,1,1,in,
+12/19/22 12:25:09, Hallway1,1,1,out,
+12/19/22 14:04:26, Hallway1,1,1,out,"slowly out and on phone, about 6 seconds, might span multiple events"
+12/19/22 14:08:03, Hallway1,1,1,in,
+12/20/22 11:07:08, Hallway1,1,1,out,
+12/20/22 14:27:30, Hallway1,1,1,in,"janitor sweeping, walks in normally, but then casts big shdow for 9 sec"
+12/20/22 14:28:24, Hallway1,1,3,out/linger,"janitor walking out and then stops to sweep before continuing out, about 8 seconds"
+12/21/22 8:05:05, Hallway1,1,1,in,
+12/21/22 8:06:18, Hallway1,1,1,out,
+12/21/22 8:08:50, Hallway1,1,1,in,
+12/25/22 12:30:11, Hallway1,1,1,out,
+12/26/22 7:17:30, Hallway1,,,no_event,pixel glitch
+12/26/22 11:57:20, Hallway1,2,2,out/out,"simeon walks out with another person side by side very slowly pointing at the camera, about 8 seconds"
+12/26/22 12:04:42, Hallway1,1,4,pbout/no_event,can see a shoe in the camera
+12/26/22 12:04:47, Hallway1,1,1,in,
+12/26/22 12:05:41, Hallway1,1,1,out,
+12/26/22 12:06:07, Hallway1,2,2,in/in,"two people walk in back to back, about 5 seconds"
+12/26/22 12:13:46, Hallway1,1,1,out,"very slow out talking on the phone, about 8 seconds"
+12/26/22 12:54:27, Hallway1,1,1,in,
+12/26/22 13:13:45, Hallway1,1,1,out,"slowly walking out, about 8 seconds"
+12/26/22 13:18:15, Hallway1,1,1,in,
+12/27/22 2:07:11, Hallway1,,,no_event,pixel glitch
+12/27/22 9:15:03, Hallway1,1,1,in,
+12/27/22 9:39:53, Hallway1,1,1,out,"arwa walks out slowly under the camera, about 5 seconds"
+12/29/22 5:47:42, Hallway1,1,1,in,
+12/29/22 5:48:06, Hallway1,1,1,out,
+12/30/22 9:58:13, Hallway1,1,1,out,
+12/30/22 9:59:17, Hallway1,1,1,in,
+12/30/22 9:59:47, Hallway1,1,1,out,
+12/30/22 10:00:44, Hallway1,1,1,in,
+1/7/23 16:02:36, Hallway1,1,1,out,
+1/7/23 16:05:01, Hallway1,1,1,in,

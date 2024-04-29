@@ -1,0 +1,48 @@
+\section{Related Work}
+\label{sec:related}
+
+\sysname is closely related to other occupancy-monitoring sensing systems---especially those using doorway-mounted sensor suites.
+\sysname also draws from the literature on sensing systems that treat harvested energy both as energy and data signal; deriving application information from the energy source.
+SolarGest~\cite{ma2019solargest} is the most recent and closely related system. SolarGest and \sysname share a similar method for using solar energy as an indicator for light ray interference, SolarGest is also batteryfree. However, SolarGest differs from \sysname in application, implementation, and focus. SolarGest measures a small set of gestures (6) that are performed close to the solar panel; these controlled conditions are in contrast to \sysname, which must deal with a wide range of confounding conditions and scenarios. Unlike SolarGest, \sysname does all recognition in-situ, while SolarGest must rely on a backscatter communication channel with which it sends all data. This offline processing severely constrains the applicability of SolarGest.
+
+
+\noindpar{Occupancy-Monitoring Systems:}
+Several different methods for detection of occupancy and inter-room movement have been explored. Existing occupancy monitoring systems use ultrasound\cite{hnat2012doorjamb}, imaging\cite{tyndall2016occupancy, teixeira2007lightweight}, wearables\cite{fishkin2005hands}, instrumented objects\cite{buettner2009activity}, structural vibrations\cite{pan2016occupant}, and opportunistic data leaked from existing meters and security systems\cite{yangoccupancy2014}.
+These systems accurately detect occupancy (many provide other features like activity and person recognition), however, each suffers from the maintenance cost associated with battery powered systems.
+
+AURES~\cite{shih2016aures} attempted to address this concern by using a rechargeable battery and an indoor solar panel.
+AURES estimates the number of occupants in a room by using wide-band ultrasonic signals.
+It needs to be installed in a central location on the room ceiling and near a light source to function properly.
+AURES, as an energy-neutral system, features an extended lifetime using energy harvesting to recharge a battery.
+However, all batteries wear out (usually in a few years) meaning replacement is inevitable.
+In comparison, \sysname has the dual advantage of being both easy to install (on the doorway) and batteryless i.e. maintenance free.
+
+Like AURES, EnOcean~\cite{EnOcean} and Leviton~\cite{Leviton} are commercial ceiling-mounted occupancy sensors that are also powered by harvested ambient light and utilize passive infrared sensors (PIR) for detecting occupancy through motion detection. These sensors are equipped with wireless communication capabilities for transmitting the occupancy status (occupied/not occupied) of specific rooms or areas. This is useful in controlling the lighting, HVAC and other electric loads. On the other hand, \sysname utilizes the information present in harvested energy variations to detect individual doorway movements as well as the direction of those movements. This information can not only be used in making smarter building utility decisions, it also provides a more detailed insight into area/room-wise usage of buildings in terms of occupancy count. This fine-grained occupancy information can possibly be used in optimizing the layout of a building and to provide higher flexibility in utility control.
+
+Another work proposes a battery-free camera powered by indoor ambient light to capture and transmit images via backscatter to a basestation upon request~\cite{saffari2021battery}. Contrary to \sysname, this system uses a duty-cycle approach rather than an event-driven for detecting an occupant present, resulting in many missed events.
+
+CeilingSee~\cite{yang2017ceilingsee} attempts to eliminate the extra power consumption of the monitoring tools by alternating existing LED lighting fixtures between being light sources and sensors in a duty cycle manner.
+It uses reflected light and machine learning to distinguish between the fixed objects in the room and the rooms occupants.
+CeilingSee offers a promising direction for new buildings, where custom lighting installations present an incremental cost. 
+In contrast to \sysname however, applying CeilingSee to legacy installations (old buildings) would be expensive, as this would include construction costs, computational infrastructure, and IT staff maintenance.
+CeilingSee could also put extra constraints on how a building can be lighted.
+
+Recent work focuses on using multiple data sources that feed into a machine learning model to estimate the number of occupants in a building~\cite{das2017non}. Using the number of connected WiFi devices to detect occupant count can provide coarse-grained information, however it's severely limited by several possible cases such as single occupant connecting multiple devices, use of wired internet access, or not having any device connected to WiFi. This issue is addressed by monitoring utility data, such as water and electricity consumption, weather temperature, and building functions and size along with the number of WiFi devices. This combination works well at the building level. Unlike that, \sysname is designed to monitor occupancy at room-level and communicate with other similar devices to deduce building-level occupancy. 
+LOCI~\cite{narayanaloci}uses data fusion from two types of sensors PIR and thermopile to localize occupants in the work space and estimates their height. It is not battryless and seems to be a power hungry system since it consume 460mW including packet transmission. 
+
+
+\noindpar{Doorway Occupancy Monitoring:}
+The UVa Doorjamb sensor~\cite{hnat2012doorjamb} enabled room-level tracking of people as they moved through a house, using ultrasonic range finders mounted above a doorway, pointed towards the ground. Doorjamb differentiates people by height, and detects direction of entry and exit into the doorway. 
+A recent update---SonicDoor~\cite{sonicdoor-buildsys2017}---identifies occupants by sensing their body shape, movement and walking pattern using ultrasonic sensors embedded in the sides and top of the doorway. SonicDoor also senses user behaviors like wearing a backpack or holding a phone.
+Doorjamb also used high-power sensors, wired power, and offline processing.
+Both of systems depend on reliable power (wired power or batteries), use high-powered sensors (ultrasonic range finders), in contrast to \sysname, which uses energy harvesting and passive detection techniques to detect people walking through a doorway, providing room-level occupancy detection.
+
+\noindpar{Energy as Data Sensing: } \sysname uses solar panels as both energy source and sensor simultaneously. This technique has been used in other systems for applications other than occupancy monitoring. Monjolo~\cite{debruin2013monjolo} measures the AC loads consumption based on the harvested power from the AC load. Trinity~\cite{xiang2013powering} is designed to measure the airflow speed of air-conditioning based on the harvested power from piezoelectricity that generated from the impact of air flow. DoubleDip~\cite{martin2012doubledip} adapted this technique to monitor the water flow through a pipe using a thermoelectric generator as a harvester and sensor. Along with these, KEH-Gait~\cite{xu2017keh} is designed for healthcare authentication and providing activity tracking. It does this by sensing the voltage level produced by two types of kinetic harvesters (piezoelectric and electromagnetic), which simultaneously also powers the system.  Similarly, SolAR~\cite{sandhu2021solar}, a wrist-worn wearable detects a variety of user activities, utilizing variation in light intensity absorbed by the solar panel as well as powering the system. There has been another attempt to design a battery-free pedometer~\cite{kalantarian2016pedometers} by placing a piezoelectric harvester inside a shoe and estimating the number of steps based on the amount of harvested energy.  
+
+Despite the fact that there is an indoor-sensing architecture that uses indoor solar-harvested power~\cite{campbell2014energy}, this architecture does not implement the idea of using the energy harvesting source as the data sensor, as used in \sysname.
+\sysname is the first batteryless energy harvesting occupancy monitoring platform, that gathers both signal as well as energy from solar panels.
+
+\noindpar{Batteryless, Transiently Powered Sensing: }
+Recent work like InK~\cite{yildirim2018ink}, HarvOS~\cite{bhatti2017harvos}, Mayfly~\cite{hester2017mayfly}, and Ratchet~\cite{van2016intermittent} have explored operating system and language-level support for developing applications easily on batteryless devices with frequent power failures.
+Others have focused on energy management and storage techniques, like  Federated Energy~\cite{jhester:ufop:sensys}, to improve system uptime and responsiveness.
+These systems inform our work, however, none has tackled the problem of batteryless occupancy monitoring.

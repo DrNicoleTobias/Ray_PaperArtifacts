@@ -1,0 +1,19 @@
+This document is a log for the different versions of code for Waldo:
+
+WaldoCode1.0 --
+Start in LPM4 -> On interrupt, start timer -> setup state variables -> Check for jitter -> Update state variable -> if 4 edges read, stop timer and store data in FRAM -> Reset and go back to LPM4
+
+WaldoCode2.0 --
+Set timer interrupt and measure start and end times of each edge, store direction based on timings.
+
+WaldoCode3.0 --
+Basically the same as 2.0, changed a few comments and threshold values here and there.
+
+WaldoCode3.1 --
+Put everything in functions, added call to radio for sending data after every 10 readings.
+
+WaldoCode4.0 --
+After every radio transmission, msp cap dies due to leakage,.
+
+WaldoCode5.0 -- 
+(NT) WaldoCode3.1 but for MSP430FR5994 pins

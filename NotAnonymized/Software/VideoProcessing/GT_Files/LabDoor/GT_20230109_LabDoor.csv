@@ -1,0 +1,90 @@
+20230109, LabDoor, 05:13:56,,,,
+20230109, LabDoor, 05:13:58,,,,
+20230109, LabDoor, 05:14:08,,,,
+20230109, LabDoor, 06:51:36,,,open door,"janitor slowly opens door, leaves can lingering about 35 seconds"
+20230109, LabDoor, 06:52:34,,,out/linger,janitor doing trash things for another 19 seconds
+20230109, LabDoor, 06:52:53,,,,
+20230109, LabDoor, 06:53:04,,,out/close door,janitor finally exits and closes door about 20 seconds
+20230109, LabDoor, 06:53:25,,,,
+20230109, LabDoor, 08:42:44,,,pbout/no_event,"door closed, dr. dean going into office"
+20230109, LabDoor, 08:42:47,,,,
+20230109, LabDoor, 09:13:51,,,,
+20230109, LabDoor, 09:20:48,,,pbout/no_event,
+20230109, LabDoor, 09:54:10,,,,
+20230109, LabDoor, 09:54:12,,,,
+20230109, LabDoor, 09:59:53,,,,
+20230109, LabDoor, 10:05:51,,,opens door/in,Simeon opens door and comes in the lab
+20230109, LabDoor, 10:07:25,,,,
+20230109, LabDoor, 10:07:30,,,pbout/linger,"janitor comes in to sweep and linger around the doorway, about 42 seconds"
+20230109, LabDoor, 10:09:17,,,pbout/no_event,dean leaves office for stairs
+20230109, LabDoor, 10:16:32,,,pbout/no_event,dean back to office
+20230109, LabDoor, 10:16:37,,,pbout,dean walkl near pbout with lab door open
+20230109, LabDoor, 10:17:50,,,pbout,dean walkl near pbout with lab door open
+20230109, LabDoor, 10:53:04,,,pbout/no_event,dean exits office towards stairs
+20230109, LabDoor, 11:00:09,,,pbout/no_event,
+20230109, LabDoor, 11:01:43,,,pbout/no_event,
+20230109, LabDoor, 11:01:44,,,,
+20230109, LabDoor, 11:14:13,,,pbout/no_event,to deans office from stairs
+20230109, LabDoor, 11:14:23,,,pbout/no_event,far pbout
+20230109, LabDoor, 11:14:24,,,,
+20230109, LabDoor, 11:16:30,,,pbout/no_event,
+20230109, LabDoor, 11:32:30,,,out,"simeon walks out of lab, door open"
+20230109, LabDoor, 11:42:37,,,in,"simeon walks in, door open"
+20230109, LabDoor, 11:56:41,,,pbout/uturn,dean walking out and back in his office
+20230109, LabDoor, 11:56:53,,,,
+20230109, LabDoor, 11:57:44,,,pbout,dean leaves office for stairs
+20230109, LabDoor, 11:57:49,,,,
+20230109, LabDoor, 11:57:53,,,pbout/no_event,
+20230109, LabDoor, 11:57:54,,,,
+20230109, LabDoor, 12:09:34,,,,
+20230109, LabDoor, 12:09:51,,,,
+20230109, LabDoor, 12:09:52,,,pbout/no_event,"door open, might catch this one"
+20230109, LabDoor, 12:12:26,,,pbout/no_event,
+20230109, LabDoor, 12:15:25,1,1,out,"simeon walks out of lab, door open"
+20230109, LabDoor, 12:15:31,,,,
+20230109, LabDoor, 12:15:32,,,,
+20230109, LabDoor, 13:12:03,,,pbout/no_event,very far pb
+20230109, LabDoor, 13:12:28,,,,
+20230109, LabDoor, 13:12:43,,,,
+20230109, LabDoor, 13:12:44,,,,
+20230109, LabDoor, 13:12:46,,,,
+20230109, LabDoor, 13:12:49,,,,
+20230109, LabDoor, 13:12:51,,,,
+20230109, LabDoor, 13:12:53,,,,
+20230109, LabDoor, 13:12:54,,,pbout/no_event,very far pb
+20230109, LabDoor, 13:14:57,1,1,in,"Simeon walks in, door open"
+20230109, LabDoor, 13:57:37,,,,
+20230109, LabDoor, 13:57:39,,,pbout/no_event,Janitor sweeping just off camera
+20230109, LabDoor, 13:57:41,,,,
+20230109, LabDoor, 13:58:04,,,,
+20230109, LabDoor, 13:58:05,,,,
+20230109, LabDoor, 13:58:06,,,,
+20230109, LabDoor, 13:58:08,,,,
+20230109, LabDoor, 13:58:10,,,,
+20230109, LabDoor, 13:58:11,,,,
+20230109, LabDoor, 13:58:12,1,1,in,janitor walks in the lab
+20230109, LabDoor, 13:58:16,,,,
+20230109, LabDoor, 13:59:25,,,,
+20230109, LabDoor, 14:00:01,,,,
+20230109, LabDoor, 14:00:03,,,,
+20230109, LabDoor, 14:00:16,,,,
+20230109, LabDoor, 14:00:17,1,1,out,janitor walks out of the lab
+20230109, LabDoor, 14:08:03,,,pbout/linger,"definite pbout, with possible linger for 7 seconds"
+20230109, LabDoor, 14:08:52,,,pbout,
+20230109, LabDoor, 14:09:12,,,,
+20230109, LabDoor, 14:09:16,,,pbout/no_event,
+20230109, LabDoor, 14:09:20,,,,
+20230109, LabDoor, 14:09:22,,,pbout/linger,
+20230109, LabDoor, 14:09:29,,,pbout/linger,
+20230109, LabDoor, 14:09:34,,,pbout/linger,
+20230109, LabDoor, 14:09:35,,,pbout/linger,"going to amy's lab, just a foot visible"
+20230109, LabDoor, 14:09:39,,,,
+20230109, LabDoor, 14:09:41,,,,
+20230109, LabDoor, 14:09:45,,,,
+20230109, LabDoor, 14:09:46,,,,
+20230109, LabDoor, 14:09:49,,,,
+20230109, LabDoor, 14:44:05,,,,
+20230109, LabDoor, 15:24:41,,,out/close door,Simeon exits and closes the door
+20230109, LabDoor, 15:24:52,,,pbout/no_event,
+20230109, LabDoor, 17:09:08,,,pbout/no_event,
+20230109, LabDoor, 17:11:49,,,pbout/no_event,

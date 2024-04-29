@@ -1,0 +1,23 @@
+20221219, LabDoor, 09:22:58,,,pbout/no_event,far pbout
+20221219, LabDoor, 09:25:38,,,pbout/no_event,"pbout mid range, can see feet"
+20221219, LabDoor, 09:52:08,,,pbout/no_event,far pbout
+20221219, LabDoor, 09:52:12,,,no_event,same as prior
+20221219, LabDoor, 09:52:14,,,no_event,same as prior
+20221219, LabDoor, 09:52:15,,,no_event,same as prior
+20221219, LabDoor, 09:52:26,,,pbout,
+20221219, LabDoor, 09:52:30,,,no_event,shadow from prior event
+20221219, LabDoor, 10:09:32,,,pbout,little far but can see feet
+20221219, LabDoor, 10:19:44,,,pbout/no_event,far pbout
+20221219, LabDoor, 10:19:46,1,3,open_door/in,Jacob comes into the lab
+20221219, LabDoor, 10:20:08,1,3,close_door/out,Jacob leaves lab
+20221219, LabDoor, 10:54:15,,,pbout/no_event,far pbout
+20221219, LabDoor, 10:54:19,,,no_event,shadow from prior event
+20221219, LabDoor, 10:54:20,,,pbout,"mid pbout, can see feet"
+20221219, LabDoor, 10:55:31,,,pbout,"pbout mid range, can kinda see feet"
+20221219, LabDoor, 11:13:43,,,pbout/no_event,far pbout
+20221219, LabDoor, 11:13:53,,,pbout/no_event,far pbout
+20221219, LabDoor, 11:13:56,,,no_event,shadow from prior event
+20221219, LabDoor, 11:37:56,,,pbout/no_event,far pbout
+20221219, LabDoor, 14:04:18,,,no_event,see reflection of next event in the window
+20221219, LabDoor, 14:04:19,,,pbout/no_event,"mid pbout, can see feet"
+20221219, LabDoor, 14:08:24,,,pbout/no_event,far pbout

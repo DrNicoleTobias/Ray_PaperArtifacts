@@ -1,0 +1,72 @@
+\section{Batteryless People Sensing}
+\label{sec:background}
+
+% Batteryless sensing is needed for large scale because....
+Energy-harvesting batteryless sensors are critical to an affordable and sustainable Internet-of-Things~(IoT) and the future of smart buildings.
+%
+Running wires to power new sensors and other devices is expensive and not always feasible.
+On the other hand, batteries are expensive, bulky, and often hazardous.
+Even rechargeable batteries wear out after a few years, and replacing trillions of additional batteries every year would be both expensive and irresponsible.
+%
+In contrast, batteryless sensors powered entirely with harvested energy cost less, weigh less, and can operate for decades with less impact on the environment.
+
+%Long term deployments at scale, like \sysname,
+However, batteryless sensing is challenging.
+Energy is stored in one or more small, cheap capacitors to improve efficiency and responsiveness~\cite{jhester:ufop:sensys}.
+Harvested energy is variable and difficult to predict.
+Power failures are common, interrupting computation and data processing, sensing, and communication.
+Clocks reset and volatile memory is lost frequently, complicating a developer's ability to build robust and sophisticated applications.
+
+Recent advances in checkpointing~\cite{ransford2011mementos, balsamo2015hibernus}, consistent execution~\cite{colin2016chain, Lucia:2015:Dino}, timekeeping~\cite{hester2016persistent}, energy management~\cite{jhester:ufop:sensys}, testing~\cite{ekho-sensys}, and debugging~\cite{colin_edb} address key challenges, and have enabled new and interesting applications: tracking building and appliance energy consumption~\cite{debruin2013monjolo,campbell2014energy} and monitoring greenhouses~\cite{jhester:ufop:sensys}.
+
+
+In spite of these improvements, current batteryless sensing applications are limited and typically fall into one of two categories: those that depend on an RFID reader and those that opportunistically detect valid, useful data whenever measured. 
+Power failures and long outages makes it difficult or impossible to gather streams of uninterrupted data, and provide high quality of service to the user.
+This has led to avoidance of some sensing applications that work best with uninterrupted sensing; such as occupancy monitoring. 
+
+Occupancy monitoring applications instrument buildings, people, or other technology, to get a better understanding of the number of people in a room.
+This information is the baseline data for successful operation of smart building functions; such as intelligent temperature and HVAC control, efficiency monitoring, elderly tracking, and other applications.
+Existing occupancy monitoring systems use many sensing techniques and deploy in many different form factors, with doorway based sensing being one promising  method~\cite{hnat2012doorjamb, sonicdoor-buildsys2017}.
+In this paper, we investigate the challenges of occupancy monitoring using intermittently powered devices mounted in doorways.
+We recognize three major challenges to implementing a successful system:
+% What are the challenges for batteryless occupancy sensing beyond the regular challenges?
+
+\noindpar{Intermittent operation:}
+The effect of small energy storage, unpredictable energy harvesting means that occupancy sensing devices must be careful to (1) manage energy to reduce power failures (so as not to miss people walking through the door), (2) use ultra low power sensing techniques and passive methods to gather signal and support the applications, and (3) be failure resistant, gracefully handling power failures and returning to deterministic states.
+
+\noindpar{Signal from Energy harvesting noise:} 
+Door-mounted occupancy sensors can harvest energy from indoor and ambient lighting using solar panels pointed towards the floor or other reflective surfaces.
+This energy is readily available in typical residential, industrial, and commercial buildings.
+This energy can be harvested, stored, and used to power sensing tasks.
+Importantly, this energy is also a \textit{signal} that can be processed to gain insight into the changing environment of the building, the movement of people and objects, or even the time of day.
+This correspondence between the energy that powers the sensor and the data that makes the application work can be leveraged to enable occuapcny detection.
+If a door-mounted entry and exit sensor has solar panels that point down towards the floor, a person walking through the doorway would occlude the light, lowering the energy harvested for that point in time.
+This event could be tracked passively, as the solar panels themselves are free sensors.
+However, this signal is noisy, and the resolution and magnitude of signal depends on the behavior of the sensor~\cite{ekho-sensys}.
+Processing useful signal from energy harvesting noise under a constrained computational and energy situation poses challenges at the hardware and firmware level for batteryless occupancy monitoring.
+
+\noindpar{Human and building confounds:}
+Harvesting both energy and signal from solar panels introduces confounding factors from the variability of lighting in buildings, and the variability of people and their habits.
+Many buildings will have some well lit rooms bordering dim hallways, or vice-versa. 
+Other rooms may have an abundance of natural light, while some have only artificial light.
+Peoples clothing, hair color, skin color, walking speed, and height will all affect the amount of occluded or reflected light and potentially change the readings on the solar panel.
+Any system that promises robust occupancy monitoring using energy harvesting must be able to handle with these many confounding factors.
+
+
+
+
+
+% We are not doing any of this now
+%\noindpar{Approximate Tasks:} Continuous sensing application require uninterrupted streams of data to ensure no events are missed.
+%For occupancy setting, it is observed that it is much better to enable longer streams of uninterrupted sensing at a lower application quality or application accuracy than to gather short, intermittent bursts at a higher quality, requiring more energy, and constraining execution to only a certain level of available energy.
+%To support nearly continuous sensing, approximate computing can be leveraged, trading accuracy and quality of services for uninterrupted operation.
+%The following are required for this to work: 1)~identifying the levels of service that can be supported by the application, and 2)~knowing when to switch between these levels of service.
+%Approximate computing applied to batteryless systems works especially well when sensor data exhibits high temporal locality, meaning that a data point gathered immediately after another may be worthless, as nothing has changed (for example when monitoring an empty doorway).
+%Knowing when to reduce the level of service is a key challenge.
+
+
+% Introduce and bridge to the next section (system design that answers these challenges)
+Batteryless occupancy sensing has never been done; but can take advantage of a key observations to provide reliable service---the reality that the applications' data stream (energy harvesting from solar panels) can also be harvested and used as energy that powers the device.
+By taking advantage of the temporal locality of energy harvesting and data in occupancy sensing, we can build a long-lived sensor that tracks and identifies people as they enter and exit rooms.
+In the following sections we discuss \sysname, a novel sensing platform that demonstrates the feasibility and utility of energy harvesting, intermittently powered devices, for sensing in the sustainable future Internet-of-Things.
+
