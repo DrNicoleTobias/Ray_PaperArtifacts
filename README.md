@@ -18,11 +18,12 @@ As the claims of this work are of the effectiveness of our custom Ray sensor, it
 
 # Folder/File Layout
 
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
+words
 
 ## Hardware
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+words
+
 ### 3D_Housing
  - Base Station Firmware
  - Ray Sensor Firmware
@@ -32,7 +33,8 @@ The file explorer is accessible using the button in left corner of the navigatio
 
 ## Software
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
+words
+
 ### 1_Train_Model
  - Base Station Firmware
  - Ray Sensor Firmware
@@ -46,6 +48,7 @@ All your files and folders are presented as a tree in the file explorer. You can
 ## Video_Demos
 
 words
+
 # Deploying a Ray Sensor
 
 words
