@@ -47,9 +47,12 @@ work is tunable using trim potentiometers pre-installation or digital potentiome
 ## Software
 The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
 
-### 1_Train_Model
+### 0_Get_Features
  - Base Station Firmware
  - Ray Sensor Firmware
+
+### 1_Train_Model
+
 ### 2_Controlled_Studies
  - Base Station Firmware
  - Ray Sensor Firmware
