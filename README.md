@@ -55,39 +55,37 @@ The Ray firmware implements the detection algorithm with a trained decision tree
 
 words
 
-# Deploying a Ray Sensor
+# Building a Ray Sensor
 
-words
+In this section, we describe the steps it takes to build a physical Ray Sensor for deployment.
 
-## Building a Ray Sensor
-
-### Housing/Enclosure, Parts, and Assembly
+## Housing/Enclosure, Parts, and Assembly
 Our prototype hardware integrates a modular custom printed circuit board (PCB) housed in a 3D-printed plastic enclosure, four solar panels, and a TI CC1101 radio.
 
-**Custom PCB**
+### Custom PCB
 The PCB for the Ray sensor consists of 3 modular parts, a Solar_Module, a MCU_Module, and a Radio_Module.  All design files for these modules and the Bill of Materials for all necessary PCB components can be found in the Hardware/PCB_Designs/ folder.  Boards can be fabricated at many places online, such as OSHpark etc, and the components can be populated by hand or by a manufacture as well.  Design files can be viewed directly by a program like Eagle, but PDFs have been made available for convenience of viewing.  The Solar_Module attaches to the MCU_Module and the MCU_Module attaches to the Radio_Module.
 
-**3D Enclosure**
+### 3D Enclosure
 The 3D printed mounting system is made of PLA plastic and contains the PCB, solar cells, and necessary wiring connecting them. Enclosure designs to house the PCB and attach the solar panels to can be found in Hardware/3D_Enclosure/PCB_Housing_and_20_DegBody_Assembly.stl with a second file Hardware/3D_Enclosure/PCB_Housing_Cap.stl to make a cap to cover the PCB during deployment.  The enclosure provides a nesting place for the solar cells, which angles the solar cell slots such that 2 of the 4 of the solar cells are pointed toward the entry, while the rest are pointed toward the exit.  
 
-**Connecting Solar Panels**
-The four (4) RL-55x70 solar panels need to be attached to the enclosure where they will be divided into two sets of two panels each, one facing inward (the direction the radio antenna is pointing) and one set facing outward.  The inward set of solar panels are connected in series and connected to the SOLAR1 terminal of the Solar Module PCB.  The outward facing panels are also connected in series and then added to the SOLAR2 terminal.
+### Connecting Solar Panels
+Four solar panels need to be attached to the enclosure where they will be divided into two sets of two panels each, one facing inward (the direction the radio antenna is pointing) and one set facing outward.  The inward set of solar panels are connected in series and connected to the SOLAR1 terminal of the Solar Module PCB.  The outward facing panels are also connected in series and then added to the SOLAR2 terminal.
 
-**Tune the Detectors**
+### Tune the Detectors
 Ray uses a detection circuit to determine when to wake up the microcontroller to assess the possible event.  The detector circuitry is tunable using trim potentiometers (trim pots) pre-installation in deployment.  You may find that depending on the lighting conditions of a particular doorway you are mounting the Ray sensor to that the sensitivity of the detector circuit's trim pots may need adjusting.  We found in our experiments that we did need to adjust the trim pots some for the general lighting conditions and found that they generally worked for other similar lighting conditions without needing to be readjusted for every doorway.  Using a screwdriver on TM1 for monitoring SOLAR1 or TM2 for monitoring SOLAR2 from the Solar_Module PCB schematics, twisting to one direction will move the detection threshold and make the detectors more sensitive while twisting in the opposite direction will make them less sensitive.
 
-**Attaching a Radio**
+### Attaching a Radio
 The Ray PCB also uses a TI CC1101 radio for communication that is to be connected to the Radio_Module in Hardware/PCB_Designs/. For our purposes, we considered the direction the antenna was pointing would be considered *inward* when mounting the sensor for practice, but logically you could train and adjust the code if you prefer it to point the other direction.
 
-**Installing on a doorway**
+### Installing on a doorway
 With all the parts assembled, tuned, connected, and attacked to the 3D printed enclosure, you can attach the Ray sensor to the top of a doorway/passageway frame with solar panels facing down anyway that you would like.  For our experiments, we affixed the 3d enclosure to a piece of wood with magnets screwed to the other side for easy in attaching and removing the sensor on different doorway/passageway frames as most within our office building had metal frames or structures to attach to.
 
-### Training the event classification model
-**Gather Raw Feature Data**
+## Training the event classification model
+### Gather Raw Feature Data
 
-**Train Model**
+### Train Model**
 
-**Translate Decision Tree Diagram to Implementation**
+### Translate Decision Tree Diagram to Implementation**
 Now that you 
 
 ### Installing Firmware
