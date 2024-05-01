@@ -6,5 +6,5 @@ This folder contains all of the design files for the custom Ray PCB modules (Sol
 # 3D_Enclosure
 This folder is for the various 3D housing models that have been created for housing the custom PCB and solar panels for the final Ray Sensor.  
 
-**Ray_BOM.xlsx**
+**BOM.xlsx**
 This is the Bill of Materials that lists the parts/components used for each of the custom PCB modules (arranged by tabs).
