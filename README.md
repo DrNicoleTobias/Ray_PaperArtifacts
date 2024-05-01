@@ -127,10 +127,9 @@ The Ray firmware is designed to be ultra-low power, even in active mode, and has
 1. Change the SUPPORT_FILE_DIRECTORY in the makefile to your msp430 gcc include
    path.
 2. Hook up a MSP430FR5994 LaunchPad to your computer.
-3. Connect the sensor to the Programmer pins on the launchpad (You may need to remove some jumpers to accomplish this) and plug them in to the appropriate programming pins on the MCU_Module.
+3. Connect the sensor to the Programmer pins on the LaunchPad (some jumpers may need to be removed to accomplish this) and plug them in to the appropriate programming pins on the MCU_Module.
 4. Use "make install" to load the program into your device.
-5. Detach from programmer and reconnect the PCB in the enclosure and you are ready to deploy.
-(Skip steps 3 and 5 if you are programming a MSP430 LaunchPad to a basestation)
+5. Detach from the programmer and reconnect the PCB in the enclosure and the unit is ready to be deployed. (Skip steps 3 and 5 if programming a MSP430 LaunchPad for a base station)
 
 
 
