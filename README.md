@@ -6,7 +6,7 @@ Ray is a batteryless, doorframe/passageway-mounted room-level occupancy monitori
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 50%; text-align: center;">
-      <img src="scenario.png" alt="Ray Use Scenario" width="500">
+      <img src="scenario.png" alt="Ray Use Scenario" width="500" style="background-color:white;">
       <br>
       <strong>Ray Use Scenario/Concept</strong>
     </td>
