@@ -62,28 +62,24 @@ int main()
       ReceiveData(RX_buffer);  // Located in cc101.h
       if(RX_buffer[0] == 57)  //57 is just a random value to be used as a key
       {
-        //printNum(RX_buffer[0]); //packet key
         printStr("ID: ");
-        //if(RX_buffer[1] == 1)
-        {
-          P1OUT ^= BIT1;
-          printNum(RX_buffer[1]); //ID
-          printStr(", ");
-          printNum(RX_buffer[2]); //event_count
-          printStr(", ");
-          printNum(RX_buffer[4] | (RX_buffer[5] << 8)); //ch1_start;
-          printStr(", ");
-          printNum(RX_buffer[6] | (RX_buffer[7] << 8)); //ch1_end;
-          printStr(", ");
-          printNum(RX_buffer[8] | (RX_buffer[9] << 8)); //ch2_start;
-          printStr(", ");
-          printNum(RX_buffer[10] | (RX_buffer[11] << 8)); //ch2_end;
-          printStr(", ");
-          printNum(RX_buffer[12]); //check;
-          printStr("\n\r");
-          delayMilliss(500);
-          P1OUT ^= BIT1;
-        }
+        P1OUT ^= BIT1;
+        printNum(RX_buffer[1]); //ID
+        printStr(", ");
+        printNum(RX_buffer[2]); //event_count
+        printStr(", ");
+        printNum(RX_buffer[4] | (RX_buffer[5] << 8)); //ch1_start;
+        printStr(", ");
+        printNum(RX_buffer[6] | (RX_buffer[7] << 8)); //ch1_end;
+        printStr(", ");
+        printNum(RX_buffer[8] | (RX_buffer[9] << 8)); //ch2_start;
+        printStr(", ");
+        printNum(RX_buffer[10] | (RX_buffer[11] << 8)); //ch2_end;
+        printStr(", ");
+        printNum(RX_buffer[12]); //check;
+        printStr("\n\r");
+        delayMilliss(500);
+        P1OUT ^= BIT1;
       }
       led_toggle();
 
