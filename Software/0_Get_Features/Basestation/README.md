@@ -4,4 +4,5 @@ This is the firmware for a base station to  Receive packets using the CC1101 Rad
 #### Setup
 1. Change the SUPPORT_FILE_DIRECTORY in the makefile to your msp430 gcc include
    path.
-2. Use "make install" to load the program into your device.
+2. Hook up a MSP430FR5994 LaunchPad to your computer.
+3. Use "make install" to load the program into your device.
