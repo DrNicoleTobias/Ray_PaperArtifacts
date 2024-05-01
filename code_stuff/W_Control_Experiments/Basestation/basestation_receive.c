@@ -12,8 +12,8 @@
 
 #include <msp430fr5994.h>
 #include <stdlib.h>
-#include "../include/cc1101.h"
-#include "../include/serialmonitor.h"
+#include "include/cc1101.h"
+#include "include/serialmonitor.h"
 
 #define RX_BUFFER_SIZE       30
 #define TIMERA2_THRESHOLD     4    // 4 for 1 ms used for timer delay

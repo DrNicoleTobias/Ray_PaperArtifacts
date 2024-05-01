@@ -18,7 +18,7 @@ while True:
 #ignore [0-2] indices as they are the values "packet", "received:", and the key value 57
     db = pymysql.connect(host= "mysql1.cs.clemson.edu" , 
                     user = "uw7k5cup",
-                    passwd ="Math1234!!",
+                    passwd ="Math1234XX!!",
                     db= "Waldo_v2_ControlData_r60f")
     cur = db.cursor()
 

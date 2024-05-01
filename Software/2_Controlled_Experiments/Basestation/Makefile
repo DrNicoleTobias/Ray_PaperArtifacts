@@ -5,7 +5,7 @@ ifndef $(MSPGCCDIR)
 endif
 
 SUPPORT_FILE_DIRECTORY = $(MSPGCCDIR)/include
-OTHER_INCLUDE = ../include
+OTHER_INCLUDE = include
 
 DDEVICE_ID = 1
 
@@ -26,8 +26,8 @@ VPATH = $(OTHER_INCLUDE)
 
 OBJ = cc1101.o serialmonitor.o
 
-all: $(OBJ) rx.c
-	$(CC) $(CXXFLAGS) -DDEVICE_ID=$(DDEVICE_ID) $(LFLAGS) $^ -o rx.elf
+all: $(OBJ) basestation_receive.c
+	$(CC) $(CXXFLAGS) -DDEVICE_ID=$(DDEVICE_ID) $(LFLAGS) $^ -o basestation_receive.elf
 
 cc1101.o : cc1101.c
 	$(CC) -c $(CXXFLAGS) $(LFLAGS) $< -o $@
@@ -37,13 +37,13 @@ serialmonitor.o : serialmonitor.c
 
 
 install: all
-	mspdebug tilib "prog rx.elf" --allow-fw-update
+	mspdebug tilib "prog basestation_receive.elf" --allow-fw-update
 
 debug: all
 	gdb_agent_console /opt/ti/gcc/msp430.dat
 
 gdb:
-	$(GDB) rx.elf
+	$(GDB) basestation_receive.elf
 
 clean:
 	rm -f *.elf *.asm *.o
