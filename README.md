@@ -2,6 +2,8 @@
 
 Ray is a batteryless, doorframe/passageway-mounted room-level occupancy monitoring sensor that uses changes in indoor ambient light reflections to detect people entering and exiting a room or hallway and estimate their direction of travel.  
 
+	![Ray Concept](scenario.png)
+
 In this document, we provide the abstract of the work with highlights from our experiments, comments for the JSys reviewers, a layout of the folder/file structure, and instructions on how to build a Ray sensor and set it and a base station up for deployment.
 
 # Abstract
@@ -22,11 +24,17 @@ This repo stores code, hardware files, and other technical documents for the pro
 ## Hardware
 This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor. 
 
+Our prototype hardware integrates four (4) RL-55x70 solar panels (70.00mm x 55.00mm) and custom printed circuit boards (PCB) housed in a 3D-printed plastic enclosure. The prototype uses an MSP430FR5994 microcontroller from Texas Instrument’s (TI) FRAM line of ultra-low-power
+processors. The newest FRAM-based MSP430s have several advantages over previous models: lower sleep-mode currents, shorter wake-up latencies, and faster non-volatile FRAM. Entirely interrupt-driven and remaining asleep most of the time to conserve energy, Ray benefits from these improvements. The solar panels are connected in two angled series-connected banks, each consisting of two series-connected panels. We connect the panels in series to increase voltage to allow Ray to work in a wider range of lighting conditions and make doorway events easier to detect. Our panels—chosen to provide flexibility during prototyping—provide enough current to power the circuit with sufficient voltage levels for detection under a wide range of lighting conditions. Future designs will focus on miniaturization. The detector circuitry is made using nano-power comparators (TI TLV3691) and a passive RC filter network. In order to give us flexibility, the RC filter net-
+work is tunable using trim potentiometers pre-installation or digital potentiometers in deployment. The Ray PCB also has a TI CC1101 radio for communication. 
+
+
 ### 3D_Housing
+
 ### PCB_Designs
 
 ## Software
-Source code, training code, testing code, and documentation.
+The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
 
 ### 1_Train_Model
  - Base Station Firmware
@@ -48,11 +56,19 @@ words
 
 ## Building a Ray Sensor
 
-### Ordering parts and assembly
+### Housing/Enclosure, Parts, and Assembly
+The 3D printed mounting system is made of PLA plastic and contains the PCB, solar cells, and necessary wiring connecting them. The enclosure provides a nesting place for the solar cells, pointing downward with a simple slide-mounted cap designed to cover the PCB when inserted into the housing. The enclosure also angles the solar cell slots such that 2 of the 4 of the solar cells are pointed toward the entry, while the rest are pointed toward the exit.  
+
+The inward set of solar panels are connected in series and connected to the SOLAR1 terminal of the Solar Module PCB.  The outward facing panels are also connected in series and then added to the SOLAR3 terminal.
+
+
+
+Ray uses a detection circuit that wakes up the microcontroller
 
 ### Training the event classification model
 
 ### Installing Firmware
+The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
 
 ### Installing on a doorway
 

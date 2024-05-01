@@ -5,13 +5,13 @@ from sklearn.model_selection import train_test_split # Import train_test_split f
 from sklearn import metrics #Import scikit-learn metrics module for accuracy calculation
 
 #col_names = ['Name', 'WaldoID', 'eventnum', 'result', 'result_detailed', 'ch1st', 'ch1end', 'ch1len', 'ch2st', 'ch2end', 'ch2len', 'dist_st', 'dist_end']
-col_names = ['Name', 'WaldoID', 'eventnum', 'result', 'result_detailed', 'ch1st', 'ch1end', 'ch2st', 'ch2end']
-
 #col_names = ['WaldoID', 'packetID', 'result', 'ch1st', 'ch1end', 'ch1len', 'ch2st', 'ch2end', 'ch2len', 'dist_st', 'dist_end', 'diff_lengths']
+
+col_names = ['Name', 'WaldoID', 'eventnum', 'result', 'result_detailed', 'ch1st', 'ch1end', 'ch2st', 'ch2end']
 
 
 # load dataset
-pima = pd.read_csv("Training_Data.csv", header=None, names=col_names)
+pima = pd.read_csv("Sample_Training_Data.csv", header=None, names=col_names)
 pima.head()
 
 #Feature Selection
@@ -27,7 +27,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 # Create Decision Tree classifer object
 #clf = DecisionTreeClassifier()
 #clf = DecisionTreeClassifier(criterion="entropy")
-clf = DecisionTreeClassifier(criterion="entropy", max_depth=3)
+clf = DecisionTreeClassifier(criterion="entropy", max_depth=4)
 
 # Train Decision Tree Classifer
 clf = clf.fit(X_train,y_train)
