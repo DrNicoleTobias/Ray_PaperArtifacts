@@ -2,7 +2,17 @@
 
 Ray is a batteryless, doorframe/passageway-mounted room-level occupancy monitoring sensor that uses changes in indoor ambient light reflections to detect people entering and exiting a room or hallway and estimate their direction of travel.  
 
-	\includegraphics[]{scenario.png}
+
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 50%; text-align: center;">
+      <img src="scenario.png" alt="Ray Use Scenario" width="500">
+      <br>
+      <strong>Ray Use Scenario/Concept</strong>
+    </td>
+  </tr>
+</table>
+
 
 
 In this document, we provide the abstract of the work with highlights from our experiments, comments for the JSys reviewers, a layout of the folder/file structure, and instructions on how to build a Ray sensor and set it and a base station up for deployment.
