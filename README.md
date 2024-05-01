@@ -96,15 +96,17 @@ With all the parts assembled, tuned, connected, and attached to the 3D printed e
 
 ## Setting up a Base Station
 To receive the data packets from the Ray Sensor, you will need a MSP430FR5994 LaunchPad and another off-the-shelf CC1101 Radio.  The radio will need to be connected to the LaunchPad’s pins as follows:
- *MSP430FR5994*	←    *CC1101*
-	 VCC		←	VCC
- 	GND			←	GND
- 	P3.4			←	GDO0
- 	P3.6			←	GDO2
- 	P4.3  		←	CSN
- 	P5.0  		←	MOSI
- 	P5.1 			←	MISO
- 	P5.2  		←	SCK
+```
+*MSP430FR5994*	←    *CC1101*
+		VCC		←	VCC
+	 	GND		←	GND
+	 	P3.4	←	GDO0
+	 	P3.6	←	GDO2
+	 	P4.3  	←	CSN
+	 	P5.0  	←	MOSI
+	 	P5.1 	←	MISO
+	 	P5.2  	←	SCK 
+```
 And as documented in the top comment of each basestation_receive.c code in the folders containing base station code. If these pins need to be modified for a particular setup, there is an /includes/pins.h file in each folder containing base station code that can be easily modified.  Once attached, the base station firmware will need to be installed to the LaunchPad simply by connecting the LaunchPad by USB to a computer with msp-gcc installed.  Navigate to the firmware folder of interest, update the makefile as suggested in that folder’s readme, and then simply run “make install” to install the firmware on the LaunchPad.   Data can be gathered by simply reading off what is sent over serial or by using a script that grabs what is coming across from the LaunchPad over serial to a database.
 
 ## Training the event classification model
