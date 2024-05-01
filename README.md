@@ -35,12 +35,7 @@ This repo stores code, hardware files, and other technical documents for the pro
 ## Hardware
 This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor. 
 
-Our prototype hardware integrates four (4) RL-55x70 solar panels (70.00mm x 55.00mm) and custom printed circuit boards (PCB) housed in a 3D-printed plastic enclosure. The prototype uses an MSP430FR5994 microcontroller from Texas Instrument’s (TI) FRAM line of ultra-low-power
-processors. The newest FRAM-based MSP430s have several advantages over previous models: lower sleep-mode currents, shorter wake-up latencies, and faster non-volatile FRAM. Entirely interrupt-driven and remaining asleep most of the time to conserve energy, Ray benefits from these improvements. The solar panels are connected in two angled series-connected banks, each consisting of two series-connected panels. We connect the panels in series to increase voltage to allow Ray to work in a wider range of lighting conditions and make doorway events easier to detect. Our panels—chosen to provide flexibility during prototyping—provide enough current to power the circuit with sufficient voltage levels for detection under a wide range of lighting conditions. Future designs will focus on miniaturization. The detector circuitry is made using nano-power comparators (TI TLV3691) and a passive RC filter network. In order to give us flexibility, the RC filter net-
-work is tunable using trim potentiometers pre-installation or digital potentiometers in deployment. The Ray PCB also has a TI CC1101 radio for communication. 
-
-
-### 3D_Housing
+### 3D_Enclosure
 
 ### PCB_Designs
 
@@ -71,9 +66,26 @@ words
 ## Building a Ray Sensor
 
 ### Housing/Enclosure, Parts, and Assembly
-The 3D printed mounting system is made of PLA plastic and contains the PCB, solar cells, and necessary wiring connecting them. The enclosure provides a nesting place for the solar cells, pointing downward with a simple slide-mounted cap designed to cover the PCB when inserted into the housing. The enclosure also angles the solar cell slots such that 2 of the 4 of the solar cells are pointed toward the entry, while the rest are pointed toward the exit.  
+Our prototype hardware integrates a modular custom printed circuit board (PCB) housed in a 3D-printed plastic enclosure, four solar panels, and a TI CC1101 radio.
 
-The inward set of solar panels are connected in series and connected to the SOLAR1 terminal of the Solar Module PCB.  The outward facing panels are also connected in series and then added to the SOLAR3 terminal.
+**Custom PCB**
+The PCB for the Ray sensor consists of 3 modular parts, a Solar_Module, a MCU_Module, and a Radio_Module.  All design files for these modules and the Bill of Materials for all necessary PCB components can be found in the Hardware/PCB_Designs/ folder.  Boards can be fabricated at many places online, such as OSHpark etc, and the components can be populated by hand or by a manufacture as well.  Design files can be viewed directly by a program like Eagle, but PDFs have been made available for convenience of viewing.
+
+**3D Enclosure**
+The 3D printed mounting system is made of PLA plastic and contains the PCB, solar cells, and necessary wiring connecting them. Enclosure designs to house the PCB and attach the solar panels to can be found in Hardware/3D_Enclosure/PCB_Housing_and_20_DegBody_Assembly.stl with a second file Hardware/3D_Enclosure/PCB_Housing_Cap.stl to make a cap to cover the PCB during deployment.  The enclosure provides a nesting place for the solar cells, which angles the solar cell slots such that 2 of the 4 of the solar cells are pointed toward the entry, while the rest are pointed toward the exit.  
+
+**Connecting Solar Panels**
+The four (4) RL-55x70 solar panels need to be attached to the enclosure where they will be divided into two sets of two panels each, one facing inward (the direction the radio antenna is pointing) and one set facing outward.  The inward set of solar panels are connected in series and connected to the SOLAR1 terminal of the Solar Module PCB.  The outward facing panels are also connected in series and then added to the SOLAR2 terminal.
+
+**Tune the Detectors**
+
+
+
+
+
+
+
+The detector circuitry is made using nano-power comparators (TI TLV3691) and a passive RC filter network. In order to give us flexibility, the RC filter network is tunable using trim potentiometers pre-installation or digital potentiometers in deployment. The Ray PCB also has a TI CC1101 radio for communication that is to be connected to the Radio_Module in Hardware/PCB_Designs/. 
 
 
 
