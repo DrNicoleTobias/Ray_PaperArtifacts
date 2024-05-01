@@ -79,8 +79,16 @@ Ray uses a detection circuit to determine when to wake up the microcontroller to
 **Attaching a Radio**
 The Ray PCB also uses a TI CC1101 radio for communication that is to be connected to the Radio_Module in Hardware/PCB_Designs/. For our purposes, we considered the direction the antenna was pointing would be considered *inward* when mounting the sensor for practice, but logically you could train and adjust the code if you prefer it to point the other direction.
 
+**Installing on a doorway**
+With all the parts assembled, tuned, connected, and attacked to the 3D printed enclosure, you can attach the Ray sensor to the top of a doorway/passageway frame with solar panels facing down anyway that you would like.  For our experiments, we affixed the 3d enclosure to a piece of wood with magnets screwed to the other side for easy in attaching and removing the sensor on different doorway/passageway frames as most within our office building had metal frames or structures to attach to.
+
 ### Training the event classification model
-Not that you 
+**Gather Raw Feature Data**
+
+**Train Model**
+
+**Translate Decision Tree Diagram to Implementation**
+Now that you 
 
 ### Installing Firmware
 The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
