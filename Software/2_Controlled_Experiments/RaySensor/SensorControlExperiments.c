@@ -414,7 +414,7 @@ uint8_t evaluate_event()
       restarts++;  //reboot
   }
 
-  //Thresholds calculated using a decision tree trained on data minus major outliers (max depth = 3)
+  //Thresholds calculated using a decision tree trained on data minus major outliers (max depth = 4)
   if(ch1_len == 1 && ch2_len == 0)
   {
     event_res = 0; //close_door;

@@ -3,28 +3,39 @@
 #include "cc1101.h"
 
 // ****** Macro Declaration ******
-#define TX_BUFFER_SIZE        40 //key + 13*3         // Size of Data Packet to send on Radio          
+#define TX_BUFFER_SIZE        30 //key + 13*3         // Size of Data Packet to send on Radio
+//#define TIMER_HZ          1250                    //if VLO, use 1250 (this gives ~1.2s);           
 #define TIMER_HZ              4096                    //if LFXT, use 4096 
-#define TIMER_THRESHOLD       20480//(5*TIMER_HZ)      // TIMER_THRESHOLD = 4096 -> Timer interrupt at 1s , set accordingly
+#define TIMER_THRESHOLD       24576//(6*TIMER_HZ)      // TIMER_THRESHOLD = 4096 -> Timer interrupt at 1s , set accordingly
+#define TIMERA1_THRESHOLD     40960//(10*TIMER_HZ)
 #define FRAM_START_ADDRESS    0x10000
 #define FRAM_BUF_SIZE         50
-#define NUMEVENTS             3    //number of event that are being kept up with at a given time.
-#define EVENTBYTES            9   //number of items being stored for each event (startx2, endx2, CRC = 5 items @ 10 bytes, plus an additional 1 byte for event # => totaling 11 bytes)
-#define PKTTBYTES             9
-#define WAITTIME              5
-#define WALDO_ID              0
+#define NUMSUBPKTS            3    //number of event that are being kept up with at a given time.
+#define PKTTBYTES             9    //11+9+9number of items being stored for each pkt (pkt #, CRC(x2 bytes), event_ct, 5xevent_data = 8 items @ 9 bytes, plus an additional 1 byte for pkt # => totaling 9 bytes)
+#define WAITTIME              12
+#define WALDO_ID              5
+#define KEY                   63
+
+#define HEARTBEAT_EC          0b000 //Nothing Happened Event
+#define IN_EC                 0b100 //In Event Classification
+#define OUT_EC                0b001 //Out Event Classification
+#define PBI_EC                0b110 //Passby_In Classification
+#define PBO_EC                0b011 //Passby_Out Classification
+#define CD_EC                 0b010 //Close_Door Classification
+#define OTHER_EC              0b111 //IDK Classification
 
 // ****** Variable Declaration ******
-uint8_t tx_buffer[61]={0};
-volatile unsigned char state_variable, interrupt_channel, timerA0_flag, timerB0_flag;
+uint8_t tx_buffer[30]={0};  //29 for 3 packet legacy space (11, 9, 9)
+volatile unsigned char state_variable, interrupt_channel, timerA0_flag, timerA1_flag, timerB0_flag;
 volatile unsigned short int timer_start;
 const unsigned int CRC_Init = 0xFFFF;
-unsigned int CRC_Result;                    // Holds results obtained through the CRC16 module
+uint16_t CRC_Result;                    // Holds results obtained through the CRC16 module
 
 uint8_t FRAM_buffer[FRAM_BUF_SIZE] __attribute__((section(".nv")));
+//memset(FRAM_buffer, 0, FRAM_BUF_SIZE); //initialize FRAM_buffer to zero (for now, at least.)
 
-volatile uint8_t event_count = 0, interrupt_flag, /*lpm_flag,*/ radio_flag, iet_ct = 0, 
-                shamt = 0, ins = 0, outs = 0, passbys = 0, restarts = 0, other = 0;
+volatile uint8_t event_count = 0, actual_event_ct = 0, interrupt_flag, /*lpm_flag,*/ radio_flag, iet_ct = 0, 
+                shamt = 0, ins = 0, outs = 0, passbys = 0, restarts = 0, other = 0, ref_idx = 0, cur_idx = 0;
 volatile int ch1_start, ch2_start, ch1_end, ch2_end,
                 ch1_len, ch2_len, dist_st, dist_end;
 
@@ -36,11 +47,13 @@ void initialize_system_pins();   // To set up interrupt pins and GPIOs
 void delay_timerA0(int);         // Delay using Timer A0, 1s = 32768/8 = 4096
 void delay_timerB0(int);         // Delay using Timer B0, 1s = 32768/8 = 4096
 void start_timerA0();            // Start Timer A0 for time specified by value of TIMER_THRESHOLD
+void start_timer_A1();           // Start Timer A1 for time specified by value of TIMERA1_THRESHOLD
+void stop_timer_A1();
 
 void go_to_sleep();
 void enable_detectorISRs();
 void disable_detectorISRs();
-void evaluate_event();           // What to do when timer A fires signaling end of event
+uint8_t evaluate_event();           // What to do when timer A fires signaling end of event
 void send_radio_pkt(uint8_t *tx_data, uint8_t size);  //void call_radio(unsigned char length, unsigned char data);  //void pin_setup_after_radio_charged();
 
 /****** Main Function ******/
@@ -55,6 +68,8 @@ int main(void)
   disable_detectorISRs();
   initialize_system_clock();        // Set clock source and frequency to 16MHz
 
+  memset(FRAM_buffer, 0, FRAM_BUF_SIZE);
+
   P1DIR |= BIT0;
   P1OUT &= ~BIT0;
   P4DIR |= BIT0;
@@ -64,7 +79,7 @@ int main(void)
   //go_to_sleep(-1);  //for debugging only
 
   enable_detectorISRs(); 
-    
+  
   // Set initial flags and variables
   interrupt_flag = 0;               // Checks if any Port interrupt has fired
   //lpm_flag = 1;                     // 1: LPM4  |   0: LPM3
@@ -72,9 +87,7 @@ int main(void)
   interrupt_channel = 0;            // Indicates which port fired the interrupt
   timerA0_flag = 0;                 // 1: Timer A ISR has fired
   timer_start = 0;                  // 1: Timer has already been started by some process | 
-                                      //     0: Timer not started
-
-  memset(FRAM_buffer, 0, FRAM_BUF_SIZE); //initialize FRAM_buffer to zero (for now, at least.)
+                                    //     0: Timer not started
 
   // Start, end times and signal width for both channels wrt first interrupt ie all times are from when the
   // first channel starts (one start value will be equal or close to zero)
@@ -83,91 +96,193 @@ int main(void)
   ch1_len = ch2_len = 0;
   dist_st = dist_end = 0;
     
-  uint8_t ref_idx = 0, cur_idx = 0;
+  event_count = 0;
+  actual_event_ct = 0;
+  start_timer_A1();
 
   while(1)
   {
     go_to_sleep();
 
-    if(timerA0_flag) //inter-event interval
-    {
+    //****** The following part of the code runs only when some interrupt (Port or timer) wakes up the MCU ******
+    //****** Otherwise, the MCU always remains in LPM4 (LPM3 is used when start the timer for event_eval) ******
+    if(timerA0_flag)   //only after event time expires
+    { 
       event_count++;
-      evaluate_event();
+      actual_event_ct++;
+      P1OUT ^= BIT0;
+    
+      //Store computed event details
+      shamt = (cur_idx * PKTTBYTES);
+      //shamt = 0;
+      //FRAM_buffer[shamt + 1] = FRAM_buffer[0];
+      //FRAM_buffer[2] and FRAM_buffer[3] will be computed after CRC is computed over the next data values
+      //They are stored earlier in the packet so that they are less likely to be currupted.
       
-      if((P1IN & BIT2))
+      FRAM_buffer[shamt + 4 + event_count] = evaluate_event();
+
+      if(event_count >= 5 && (P1IN & BIT2))
       {
         disable_detectorISRs();
-        tx_buffer[0] = 57;
-        tx_buffer[1] = WALDO_ID;
-        tx_buffer[2] = event_count;
-        tx_buffer[3] = iet_ct;  //inter-event time count, not used for features currently
-        tx_buffer[4] = ch1_start & 0xFF;    tx_buffer[5] = ch1_start >> 8;
-        tx_buffer[6] = ch1_end & 0xFF;      tx_buffer[7] = ch1_end >> 8;
-        tx_buffer[8] = ch1_len & 0xFF;      tx_buffer[9] = ch1_len >> 8;
-        tx_buffer[10] = ch2_start & 0xFF;   tx_buffer[11] = ch2_start >> 8;
-        tx_buffer[12] = ch2_end & 0xFF;     tx_buffer[13] = ch2_end >> 8;
-        tx_buffer[14] = ch2_len & 0xFF;     tx_buffer[15] = ch2_len >> 8;
-        tx_buffer[16] = dist_st & 0xFF;     tx_buffer[17] = dist_st >> 8;
-        tx_buffer[18] = dist_end & 0xFF;    tx_buffer[19] = dist_end >> 8;
+        //Assign current pkt information
+        //make pkt to send
+        FRAM_buffer[0]++;  //pkt number
+        FRAM_buffer[shamt + 1] = FRAM_buffer[0];  //current pkt number
+        FRAM_buffer[shamt + 4] = actual_event_ct;
         
+        //make pkt to send
+        //cur_idx = (cur_idx + 1) % NUMSUBPKTS;
+      
+        //Calculate CRC
+        // First, use the CRC16 hardware module to calculate the CRC...
+        CRC16INIRESW0 = CRC_Init;               // Init CRC16 HW module
+        for(int i = 4; i <= 9; i+=1)
+        {
+          // Input random values into CRC Hardware
+          CRC16DIRBW0 = (FRAM_buffer[shamt + i]);// | (FRAM_buffer[shamt + (i+1)] << 8);
+          __no_operation();
+        }
+        CRC_Result = CRC16INIRESW0;             // Save results (per CRC-CCITT standard)
+      
+        //Store CRC details in FRAM
+        FRAM_buffer[shamt + 2] = CRC_Result & 0xFF; //low byte
+        FRAM_buffer[shamt + 3] = CRC_Result >> 8;   //high byte
+
+        tx_buffer[0] = KEY;   //key for receiver
+        ref_idx = cur_idx;
+        for(int e = 1; e <= (NUMSUBPKTS*PKTTBYTES); e++)
+        {
+            shamt = ref_idx * PKTTBYTES;
+            tx_buffer[e] =  FRAM_buffer[shamt + ((e-1) % PKTTBYTES) + 1];
+            if((e % PKTTBYTES) == 0)
+            {
+              ref_idx = (ref_idx + 2) % NUMSUBPKTS;
+            }
+        }
+
         //send to pkt
         send_radio_pkt(tx_buffer, TX_BUFFER_SIZE);
-        delay_timerB0(TIMER_HZ);   // 1s = 4096, /8 seem to work well here.
+        event_count = 0;//???
+        actual_event_ct = 0;
+        cur_idx = (cur_idx + 1) % NUMSUBPKTS;
+        delay_timerB0(1 * TIMER_HZ);   // 1s = 4096,
       }
 
-      ch1_start = ch1_end = -1;
-      ch2_start = ch2_end = -1;
-      ch1_len = ch2_len = 0;
-      dist_end = dist_st = 0;
+      delay_timerB0(TIMER_HZ/150);   // 1s = 4096, /8 seem to work well here.
       
-      iet_ct = 0;  ///moved out of send loop       
+      iet_ct = 0;
       timerA0_flag = 0;
-      //cur_idx = (cur_idx + 1) % NUMEVENTS;
+      timerA1_flag = 0;  //added
       P1OUT ^= BIT0;
       enable_detectorISRs();
-    }//*/
-    
-    if(interrupt_flag)
-    {                  // Triggers only when Port ISR sets interrupt_flag
-      if(!timer_start)
-      {                  // If it's the first one to trigger (timer hasn't been started yet)
-          start_timerA0();                  // Start Timer_A
-          timerA0_flag = 0; /// this flag may need to be moved
-          P1OUT ^= BIT0; 
+      start_timer_A1();
+    }
+
+    if(timerA1_flag) //inter-event interval or timerA1_flag
+    {
+      //add_heartbeat_pkt
+      event_count++;
+      FRAM_buffer[shamt + 4 + event_count] = (iet_ct << 3) | HEARTBEAT_EC;
+
+      if(event_count >= 5 && (P1IN & BIT2))
+      {
+        disable_detectorISRs();
+        //Assign current pkt information
+        //make pkt to send
+        FRAM_buffer[0]++;  //pkt number
+        FRAM_buffer[shamt + 1] = FRAM_buffer[0];  //current pkt number
+        FRAM_buffer[shamt + 4] = actual_event_ct;
+        
+        //make pkt to send
+      
+        //Calculate CRC
+        // First, use the CRC16 hardware module to calculate the CRC...
+        CRC16INIRESW0 = CRC_Init;               // Init CRC16 HW module
+        for(int i = 4; i <= PKTTBYTES; i++)
+        {
+          // Input random values into CRC Hardware
+          CRC16DIRBW0 = (FRAM_buffer[shamt + i]);         // Input data in CRC
+          __no_operation();
+        }
+        CRC_Result = CRC16INIRESW0;             // Save results (per CRC-CCITT standard)
+      
+        //Store CRC details in FRAM
+        FRAM_buffer[shamt + 2] = CRC_Result & 0xFF; //low byte
+        FRAM_buffer[shamt + 3] = CRC_Result >> 8;   //high byte
+        //*/
+
+        tx_buffer[0] = KEY;   //key for receiver
+        ref_idx = cur_idx;
+        for(int e = 1; e <= (NUMSUBPKTS*PKTTBYTES); e++)
+        {
+            shamt = ref_idx * PKTTBYTES;
+            tx_buffer[e] =  FRAM_buffer[shamt + ((e-1) % PKTTBYTES) + 1];
+            if(e % PKTTBYTES == 0)
+            {
+              ref_idx = (ref_idx + 2) % NUMSUBPKTS;
+            }
+        }//*/
+
+        //send to pkt
+        send_radio_pkt(tx_buffer, TX_BUFFER_SIZE);
+        event_count = 0;//???
+        actual_event_ct = 0;
+        cur_idx = (cur_idx + 1) % NUMSUBPKTS;
+        delay_timerB0(1 * TIMER_HZ);   // 1s = 4096,
       }
       
-      if (interrupt_channel == 1)
-      {         // Hi-Lo Channel 1 interrupt triggered  //B
-        if(ch1_start == -1)
-        {    // If channel fires and it hasn't started timing yet (indicates first falling edge)
-          ch1_start = TA0R;          // Record start time of the channel
-          P3IES &= ~BIT2;                  // Invert triggering edge to Lo-Hi
+      delay_timerB0(TIMER_HZ/150);   // 1s = 4096, /8 seem to work well here.
+      enable_detectorISRs();
+
+        P4OUT ^= BIT0;
+        timerA1_flag = 0;
+        iet_ct = 0;
+        start_timer_A1();
+    }//*/
+    
+      if(interrupt_flag)
+      {                  // Triggers only when Port ISR sets interrupt_flag
+        if(!timer_start)
+        {                  // If it's the first one to trigger (timer hasn't been started yet)
+            stop_timer_A1();
+            start_timerA0();                  // Start Timer_A
+            timerA0_flag = 0; /// this flag may need to be moved
+            timerA1_flag = 0;  //added
+//            P1OUT ^= BIT0; 
         }
-        else
-        {                                  // If channel fires and its the rising edge
-          ch1_end = TA0R;            // Record end time of the channel
+        
+        if (interrupt_channel == 1)
+        {         // Hi-Lo Channel 1 interrupt triggered  //B
+          if(ch1_start == -1)
+          {    // If channel fires and it hasn't started timing yet (indicates first falling edge)
+            ch1_start = TA0R;          // Record start time of the channel
+            P3IES &= ~BIT2;                  // Invert triggering edge to Lo-Hi
+          }
+          else
+          {                                  // If channel fires and its the rising edge
+            ch1_end = TA0R;            // Record end time of the channel
+          }
         }
-      }
-      else if(interrupt_channel == 2)  //C
-      {
-        if(ch2_start == -1)
-        {     // Hi-Lo Channel 1 interrupt triggered
-          ch2_start = TA0R;
-          P3IES &= ~BIT5;                 // Invert triggering edge to Lo-Hi
-        }
-        else
+        else if(interrupt_channel == 2)  //C
         {
-          ch2_end = TA0R;
-        }
-      }//end if-else
+          if(ch2_start == -1)
+          {     // Hi-Lo Channel 1 interrupt triggered
+            ch2_start = TA0R;
+            P3IES &= ~BIT5;                 // Invert triggering edge to Lo-Hi
+          }
+          else
+          {
+            ch2_end = TA0R;
+          }
+        }//end if-else
       
       interrupt_channel = 0;
       interrupt_flag = 0;
       
-    }//end if//*/
-  }//end while
+      }//end if//*/
+    }//end while
   
-  return 0;
+    return 0;
 }//end main
 
 void initialize_system_pins()
@@ -335,8 +450,10 @@ void send_radio_pkt(uint8_t *tx_data, uint8_t size)//unsigned char transmit_leng
   //enable_detectorISRs();
 }//end send_radio_pkt function
 
-void evaluate_event()
+uint8_t evaluate_event()
 {
+  uint8_t event_res = -1;
+
   // Compute width of Hi-Lo signals
   ch1_len = ch1_end - ch1_start;
   ch2_len = ch2_end - ch2_start;
@@ -345,13 +462,86 @@ void evaluate_event()
   dist_end = (ch1_end - ch2_end);
   dist_end = dist_end * ((dist_end>0) - (dist_end<0));
 
-  FRAM_buffer[0]++;  //increment event total seen so far
-
   if(event_count == 1)
   {
       restarts++;  //reboot
   }
+
+  //Thresholds calculated using a decision tree trained on data minus major outliers (max depth = 4)
+  if(ch1_len == 1 && ch2_len == 0)
+  {
+    event_res = (iet_ct << 3) | CD_EC; //close_door;
+  }
+  else if(ch1_start == -1 || ch2_start == -1 || ch1_end <= 561)
+  {
+    event_res = (iet_ct << 3) | PBO_EC; //passby_out;
+  }
+  else if(ch1_end > 6710 && ch1_start > 2)
+  {
+    event_res = (iet_ct << 3) | IN_EC; //ins_9; confident
+  }
+  else if(ch1_end > 6710 && ch1_start <= 2 && dist_end > 393 && ch1_end > 7576)
+  {
+    if(ch1_end > ch2_end)
+    {
+      event_res = (iet_ct << 3) | IN_EC; //ins_8; confident
+    }
+    else
+    {
+      event_res = (iet_ct << 3) | OUT_EC; //out; confident
+    }
+  }
+  else if(ch1_end > 6710 && ch1_start <= 2 && dist_end > 393 && ch1_end <= 7576)
+  {
+    if(ch1_end > ch2_end)
+    {
+      event_res = (iet_ct << 3) | IN_EC; //ins
+    }
+    else
+    {
+      event_res = (iet_ct << 3) | OUT_EC; //out; confident
+    }
+  }
+  else if(ch1_end > 6710 && ch1_start <= 2 && dist_end <= 393)
+  {
+    event_res = (iet_ct << 3) | PBI_EC; //pbin; confident
+  }
+  else if(ch1_end <= 6710 && ch1_end > 561 && dist_end > 427 && ch2_end > 4847)
+  {
+    if(ch1_start > 1000 || ch1_end > ch2_end)
+    {
+      event_res = (iet_ct << 3) | IN_EC; //ins
+    }
+    else
+    {
+      event_res = (iet_ct << 3) | OUT_EC; //out; mostly******
+    }
+  }
+  else if(ch1_end <= 6710 && ch1_end > 561 && dist_end > 427 && ch2_end <= 4847)
+  {
+    if(dist_st < 2 && ch2_end > ch1_end)
+    {
+      event_res = (iet_ct << 3) | OUT_EC; //out; maybe******
+    }
+    else
+    {
+      event_res = (iet_ct << 3) | IN_EC; //in; maybe******
+    }
+  }
+  else if(ch1_end <= 6710 && ch1_end > 561 && dist_end <= 427 && dist_end > 1)
+  {
+    event_res = (iet_ct << 3) | PBI_EC; //pbin; confident
+  }
+  else if(ch1_end <= 6710 && ch1_end > 561 && dist_end <= 427 && dist_end <= 1)
+  {
+    event_res = (iet_ct << 3) | PBI_EC; //pbin; maybe******
+  }
+  else
+  {
+    event_res = (iet_ct << 3) | OTHER_EC; //other;
+  }
   
+
   // Reset variables
   //lpm_flag = 1;
   interrupt_channel = 0;
@@ -359,13 +549,15 @@ void evaluate_event()
   timerA0_flag = 0;
   timer_start = 0;
   
-/*  ch1_start = ch1_end = -1;
+  ch1_start = ch1_end = -1;
   ch2_start = ch2_end = -1;
   ch1_len = ch2_len = 0;
-  dist_end = dist_st = 0;*/
+  dist_end = dist_st = 0;//*/
   
   P3IES |= BIT2;            // Revert Trigger edge back to Hi-Lo for next event detection
   P3IES |= BIT5;
+
+  return event_res;
 }//end evaluate_event function
 
 void start_timerA0()
@@ -380,6 +572,27 @@ void start_timerA0()
   timer_start = 1;
   //lpm_flag = 0;
 }//end start_timerA0 function
+
+void start_timer_A1()  //Setup 10s timer
+{
+  //TA1CTL |= TACLR + MC__STOP;
+  TA1R = 0;
+  TA1CCTL0 = CCIE;                                // CCR0 interrupt enabled
+  TA1CCR0  = TIMERA1_THRESHOLD;                   // Set timer for 10s   Largest able to have is (2^16 = 65,536)
+  TA1CTL   = TASSEL__ACLK + MC__UP + ID__8;       // ACLK, upmode, /8
+  TA1CTL  |= TAIE;
+}//end start_timerA1 function//*/
+
+void stop_timer_A1()
+{
+  TA1CTL |= TACLR + MC__STOP;
+  TA1R = 0;
+  TA1CCTL0 = CCIE;                                // CCR0 interrupt enabled
+  TA1CCR0 =  TIMERA1_THRESHOLD;                     // Set timer for ??
+  TA1CTL = TASSEL__ACLK + MC__STOP + ID__8;         // ACLK, stop, /8
+  TA1CTL &= ~TAIE;
+  timerA1_flag = 0;  //added
+}//*/
 
 void disable_detectorISRs()
 {
@@ -437,9 +650,26 @@ void __attribute__ ((interrupt(TIMER0_A0_VECTOR))) Timer_A0(void)  // ISR for Ti
   
   timer_start = 0;
   timerA0_flag = 1;
+  timerA1_flag = 0;
 
   __bic_SR_register_on_exit(LPM3_bits + GIE);  // Wake up from LPM3
 }//end Timer A0 ISR
+
+/* ISR for Timer A1 used for inter-event timing*/
+void __attribute__ ((interrupt(TIMER1_A0_VECTOR))) Timer_A1(void)  // ISR for Timer A
+{
+  TA1CTL |= TACLR;
+  TA1CTL &= ~TAIFG;
+  
+  //P1OUT ^= BIT0;
+  iet_ct++;
+
+  if(iet_ct % WAITTIME == 0)  //make equal two minutes for heartbeat
+  {
+    timerA1_flag = 1;
+    __bic_SR_register_on_exit(LPM3_bits + GIE);
+  }
+}//end Timer A1 ISR//*/
 
 /* ISR for Timer A2 used in System LFXT Clock setup*/
 void __attribute__ ((interrupt(TIMER2_A0_VECTOR))) Timer_A2(void)

@@ -15,8 +15,10 @@
 #include "include/cc1101.h"
 #include "include/serialmonitor.h"
 
-#define RX_BUFFER_SIZE       50
+#define RX_BUFFER_SIZE       30
 #define TIMERA2_THRESHOLD     4    // 4 for 1 ms used for timer delay
+#define NUMPKTEVENTS          3    //number of event that are being kept up with at a given time.
+#define PKTTBYTES            9    //number of items being stored for each event (startx2, endx2, CRC = 5 items @ 10 bytes, plus an additional 1 byte for event # => totaling 11 bytes)
 
 /*------------------Function prototypes-------------------------------------*/
 void ConfigureMCUSpeed();                // Located in CC1101.c
@@ -25,6 +27,10 @@ void delayMilliss(unsigned long millis);
 /*------------------Other config--------------------------------------------*/
 uint8_t RX_buffer[RX_BUFFER_SIZE]={0};
 volatile uint8_t GDOFlag = 0;          // Confirm packet has been received on interrupt
+uint8_t shamt = 0, time_be = 0, event_class = 0;
+uint16_t crc = 0;
+const unsigned int CRC_Init = 0xFFFF;
+uint16_t CRC_Result;                    // Holds results obtained through the CRC16 module
 
 int main()
 {
@@ -60,35 +66,74 @@ int main()
         RX_buffer[j] = 0;
       }
       ReceiveData(RX_buffer);  // Located in cc101.h
-      if(RX_buffer[0] == 57)  //57 is just a random value to be used as a key
+      if(RX_buffer[0] == 59 || RX_buffer[0] == 58 || RX_buffer[0] == 63 || RX_buffer[0] == 60)  //58 is just a random value to be used as a key, subtracting this value gives you waldoidnum
       {
-        printStr("ID: ");
-        P1OUT ^= BIT1;
-        printNum(RX_buffer[1]); //ID
-        printStr(", ");
-        printNum(RX_buffer[2]); //event_count
-        printStr(", ");
-        printNum(RX_buffer[4] | (RX_buffer[5] << 8)); //ch1_start;
-        printStr(", ");
-        printNum(RX_buffer[6] | (RX_buffer[7] << 8)); //ch1_end;
-        printStr(", ");
-        printNum(RX_buffer[8] | (RX_buffer[9] << 8)); //ch1_len;
-        printStr(", ");
-        printNum(RX_buffer[10] | (RX_buffer[11] << 8)); //ch2_start;
-        printStr(", ");
-        printNum(RX_buffer[12] | (RX_buffer[13] << 8)); //ch2_end;
-        printStr(", ");
-        printNum(RX_buffer[14] | (RX_buffer[15] << 8)); //ch2_len;
-        printStr(", ");
-        printNum(RX_buffer[16] | (RX_buffer[17] << 8)); //dist_st;
-        printStr(", ");
-        printNum(RX_buffer[18] | (RX_buffer[19] << 8)); //dist_end;
+        printStr("Packet Received: W");
+        printNum((RX_buffer[0] - 58));
         printStr("\n\r");
-        delayMilliss(500);
-        P1OUT ^= BIT1;
+          P1OUT ^= BIT1;
+        //printStr("Reading#: \t\t WaldoID: \t\t PktID: \t\t CRC: \t\t\t Totevents: \t\t e1time: \t\t\t e1class: \t\t e2time: \t\t\t e2class: \t\te3time: \t\t\t e3class: \t\te4time: \t\t\t e4class: \t\te5time: \t\t\t e5class: \t\t: \n");
+        for(int id = 0; id < NUMPKTEVENTS; id++)
+        {
+          shamt = id * PKTTBYTES;
+          crc = RX_buffer[shamt + 2] | (RX_buffer[shamt + 3] << 8);
+          //Calculate CRC
+          // First, use the CRC16 hardware module to calculate the CRC...
+          CRC16INIRESW0 = CRC_Init;               // Init CRC16 HW module
+          for(int i = 4; i <= 9; i+=1)
+          {
+            // Input random values into CRC Hardware
+            CRC16DIRBW0 = (RX_buffer[shamt + i]);// | (RX_buffer[shamt + (i+1)] << 8);         // Input data in CRC
+            __no_operation();
+          }
+          CRC_Result = CRC16INIRESW0;             // Save results (per CRC-CCITT standard)
+          
+          printNum((RX_buffer[0] - 58));  //WaldoID
+          printStr("\t");
+          printNum(RX_buffer[shamt + 1]); //reading PKT number
+          printStr("\t");
+          
+          if(crc == CRC_Result)
+            printStr("Valid \t\t");
+          else
+            printStr("Invalid \t");
+
+          printNum(RX_buffer[shamt + 4]); //event count
+          printStr("\t");
+
+          for(int g = 5; g <= PKTTBYTES; g++)
+          {
+            event_class = RX_buffer[shamt + g] & 0b00000111;
+            time_be = RX_buffer[shamt + g] >> 3;
+            printbinNum(time_be);
+            printStr("\t");
+
+            if(event_class == 0)
+              printStr("<3\t");
+            else if(event_class == 1)
+              printStr("out\t");
+            else if(event_class == 2)
+              printStr("close_door\t");
+            else if(event_class == 3)
+              printStr("pbout\t");
+            else if(event_class == 4)
+              printStr("in\t");
+            else if(event_class == 5)
+              printStr("NaN\t");
+            else if(event_class == 6)
+              printStr("pbin\t");
+            else if(event_class == 7)
+              printStr("other\t");
+            printStr("   ");
+          }
+          printStr("\n\r");
+        }//*/
+          
+          delayMilliss(500);
+          P1OUT ^= BIT1;
+        //}
       }
       led_toggle();
-
     }
 
   } // End of while loop
