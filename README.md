@@ -98,8 +98,8 @@ With all the parts assembled, tuned, connected, and attached to the 3D printed e
 To receive the data packets from the Ray Sensor, you will need a MSP430FR5994 LaunchPad and another off-the-shelf CC1101 Radio.  The radio will need to be connected to the LaunchPad’s pins as follows:
 ```
 	*MSP430FR5994*	←    *CC1101*
-		VCC		←	VCC
-	 	GND		←	GND
+		VCC	←	VCC
+	 	GND	←	GND
 	 	P3.4	←	GDO0
 	 	P3.6	←	GDO2
 	 	P4.3  	←	CSN
