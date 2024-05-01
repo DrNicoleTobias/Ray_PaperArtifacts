@@ -20,14 +20,10 @@ As the claims of this work are of the effectiveness of our custom Ray sensor, it
 This repo stores code, hardware files, and other technical documents for the project. Subdirectories are described below.
 
 ## Hardware
-Hardware PCB version files, 3D enclosures, and documentation.
+This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor. 
 
 ### 3D_Housing
- - Base Station Firmware
- - Ray Sensor Firmware
 ### PCB_Designs
- - Base Station Firmware
- - Ray Sensor Firmware
 
 ## Software
 Source code, training code, testing code, and documentation.
