@@ -36,22 +36,28 @@ This repo stores code, hardware files, and other technical documents for the pro
 This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor. 
 
 ## Software
-All software provided is either C code compiled and ran on the MSP430FR5994 chips used for our sensor and base station or python3 scripting code that is processed on a base station or laptop. The following subfolders contain the code needed to gather the raw features from a Ray sensor (0_Get_Features) and train a decision tree classifier model using those features (1_Train_Model).  Once trained, the model will need to be implemented in the experiment code subfolders 2_Controlled_Studies and 3_Uncontrolled_Studies.
+All software provided is either C code compiled and ran on the MSP430FR5994 chips used for our sensor and base station or python3 scripting code that is processed on a base station or laptop. Because there are variations in both component quality, doorway and lighting conditions, you may find that you want to train the classifier model on data more closely related to your office environment to improve accuracy.  In that event, The following subfolders contain the code needed to gather the raw features from a Ray sensor (0_Get_Features) and train a new decision tree classifier model using those features (1_Train_Model).  Once trained, the model will need to be manually implemented in the experiment code subfolders 2_Controlled_Studies and 3_Uncontrolled_Studies (specific locations to change are mentioned in those folders' ReadMe documentation.
 
 ### 0_Get_Features
 This folder contains the firmware needed for both the Ray sensor and for a basestation in order to gather the raw feature data that the sensor is collecting on a doorway/passageway that you wish to train your classification model for capturing direction and various corner cases such as pass-bys.  Have sample subjects walk in and out in a controlled manner so that you can capture what the raw features from your sensor look like under your lighting conditions and environment.  Collect this data using what is received at the basestation and the result for that data that you wish to train with in a CSV file for use in training the model in the next step.  
 
 ### 1_Train_Model
-This folder contains a python script called make
+This folder contains a python script called makedecisions.py that will use the CSV file of data gathered from the 0_Get_Features scripts/code in order to train a new decision tree to update the models for testing or real world deployment.
 
 ### 2_Controlled_Studies
+This folder contains the firmware for both the Ray sensor and for a basestation to receive packets from a Ray Sensor using the CC1101 Radio with a MSP430FR994 launchpad where the Ray Sensor sends a single packet for individual controlled events.
 
 ### 3_Uncontrolled_Studies
-
+This folder contains the firmware for both the Ray sensor and for a basestation to receive full packets from a deployed Ray Sensor using the CC1101 Radio with a MSP430FR994 launchpad where the Ray Sensor to send complete packets containing a sequence of 5 events, an estimate of their time between events, heartbeats in the absence of activity for 2 minutes, and history of the last two packets sent for redundancy.
 
 ## Video_Demos
+Something about the video demos here.... Needs work **************
 
-words
+	-Power?
+	-Controlled?
+	-Confounding Cases?
+	-Comparison with EnOcean?
+
 
 # Building a Ray Sensor
 
@@ -87,7 +93,7 @@ Four solar panels need to be attached to the enclosure where they will be divide
 Ray uses a detection circuit to determine when to wake up the microcontroller to assess the possible event.  The detector circuitry is tunable using trim potentiometers (trim pots) pre-installation in deployment.  You may find that depending on the lighting conditions of a particular doorway you are mounting the Ray sensor to that the sensitivity of the detector circuit's trim pots may need adjusting.  We found in our experiments that we did need to adjust the trim pots some for the general lighting conditions and found that they generally worked for other similar lighting conditions without needing to be readjusted for every doorway.  Using a screwdriver on TM1 for monitoring SOLAR1 or TM2 for monitoring SOLAR2 from the Solar_Module PCB schematics, twisting to one direction will move the detection threshold and make the detectors more sensitive while twisting in the opposite direction will make them less sensitive.
 
 ### Attaching a Radio
-The Ray PCB also uses a TI CC1101 radio for communication that is to be connected to the Radio_Module in Hardware/PCB_Designs/. For our purposes, we considered the direction the antenna was pointing would be considered *inward* when mounting the sensor for practice, but logically you could train and adjust the code if you prefer it to point the other direction.
+The Ray PCB also uses a TI CC1101 radio for communication that is to be connected to the Radio_Module in Hardware/PCB_Designs/. The TI CC1101 radio board is an off-the-shelf board that we designed a plug-in for on the Radio_Module boards.  For our purposes, we considered the direction the antenna was pointing would be considered *inward* when mounting the sensor for practice, but logically you could train and adjust the code if you prefer it to point the other direction.
 
 ### Installing on a doorway
 With all the parts assembled, tuned, connected, and attacked to the 3D printed enclosure, you can attach the Ray sensor to the top of a doorway/passageway frame with solar panels facing down anyway that you would like.  For our experiments, we affixed the 3d enclosure to a piece of wood with magnets screwed to the other side for easy in attaching and removing the sensor on different doorway/passageway frames as most within our office building had metal frames or structures to attach to.
@@ -97,21 +103,27 @@ CC1101 Radio + Msp430 attached to a raspberryPi or a Laptop capturing data from 
 
 ## Training the event classification model
 ### Gather Raw Feature Data
+0_Get_Features folder in software Needs work **************
 
 
 ### Train Model
-Need python3 pandas, graphviz, and scikit-learn installed before running the training model script.
+Need python3 pandas, graphviz, and scikit-learn installed before running the training model script. Needs work **************
+
 
 
 ### Translate Decision Tree Diagram to Implementation**
-Now that you 
+Now that you have a tree generated, you will need to manually implement that in the code. Needs work **************
 
 ### Installing Firmware
-The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
+The Ray firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. All firmware code in the Software folder basically requires the same setup in order to program either the launchpad or the Ray Sensor.
+1. Change the SUPPORT_FILE_DIRECTORY in the makefile to your msp430 gcc include
+   path.
+2. Hook up a MSP430FR5994 LaunchPad to your computer.
+3. Connect the sensor to the Programmer pins on the launchpad (You may need to remove some jumpers to accomplish this) and plug them in to the appropriate programming pins on the MCU_Module.
+3. Use "make install" to load the program into your device.
+4. Detach from programmer and reconnect the PCB in the enclosure and you are ready to deploy.
+(Skip steps 3 and 4 if you are programming a MSP430 LaunchPad to a basestation)
 
-The Ray firmware implements the detection algorithm with a trained decision tree for event classification once it is deployed.  Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.  
-
-### Installing on a doorway
 
 
 
