@@ -1,0 +1,196 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{hnat2012doorjamb}
+\citation{tyndall2016occupancy,teixeira2007lightweight}
+\citation{fishkin2005hands}
+\citation{buettner2009activity}
+\citation{pan2016occupant}
+\citation{yangoccupancy2014}
+\citation{hnat2012doorjamb}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  The overall system concept of Ray\xspace  , a batteryless, energy-harvesting, doorway mounted occupancy tracking and person detection enabling system. This system uses reflective indoor lighting to both power the system and detect person entry and exit activity to a room or corridor.\relax }}{1}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:syspic}{{1}{1}{The overall system concept of \sysname , a batteryless, energy-harvesting, doorway mounted occupancy tracking and person detection enabling system. This system uses reflective indoor lighting to both power the system and detect person entry and exit activity to a room or corridor.\relax }{figure.caption.1}{}}
+\citation{desai2018,sorber_tobias_2022}
+\citation{jhester:ufop:sensys}
+\citation{ransford2011mementos,balsamo2015hibernus}
+\citation{colin2016chain,Lucia:2015:Dino}
+\citation{hester2016persistent}
+\citation{jhester:ufop:sensys}
+\citation{ekho-sensys}
+\citation{colin_edb}
+\citation{debruin2013monjolo,campbell2014energy}
+\citation{jhester:ufop:sensys}
+\citation{hnat2012doorjamb,sonicdoor-buildsys2017}
+\citation{li2018self}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Batteryless People Sensing}{2}{section.2}\protected@file@percent }
+\newlabel{sec:background}{{2}{2}{Batteryless People Sensing}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}The Ray\xspace  Design}{3}{section.3}\protected@file@percent }
+\newlabel{sec:system}{{3}{3}{The \sysname Design}{section.3}{}}
+\citation{jhester:ufop:sensys}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The Ray\xspace  architecture overview. Ray\xspace  uses the energy and signals from two sets of solar panels to both power the sensor and detect people passing into and out of a doorway. Two detector circuits each monitor the solar panels sets mounted in series in the doorway. One detector monitors a set of similarly facing panels, while the other observes the combined signal from all of the panels. On detection, the detectors wake up the MCU to process, log, or communicate occupancy information. \relax }}{4}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:overview}{{2}{4}{The \sysname architecture overview. \sysname uses the energy and signals from two sets of solar panels to both power the sensor and detect people passing into and out of a doorway. Two detector circuits each monitor the solar panels sets mounted in series in the doorway. One detector monitors a set of similarly facing panels, while the other observes the combined signal from all of the panels. On detection, the detectors wake up the MCU to process, log, or communicate occupancy information. \relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Energy Harvesting and Management}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Detection}{4}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:detection}{{3.2}{4}{Detection}{subsection.3.2}{}}
+\newlabel{fig:tracesin}{{3a}{5}{Walking in.\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:tracesin}{{a}{5}{Walking in.\relax }{figure.caption.3}{}}
+\newlabel{fig:tracesout}{{3b}{5}{Walking out.\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:tracesout}{{b}{5}{Walking out.\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces These traces show example solar panel voltages and detector outputs over time when a person walks through a Ray\xspace  -enabled doorway. The top traces show how the solar panel's voltages are deformed during the doorway event. The detector triggers are used to wake up the microcontroller and detect events and their direction. The angling of the panels cause the inward facing and outward facing detectors to trigger at different times depending on the direction the person is walking.\relax }}{5}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:traces}{{3}{5}{These traces show example solar panel voltages and detector outputs over time when a person walks through a \sysname -enabled doorway. The top traces show how the solar panel's voltages are deformed during the doorway event. The detector triggers are used to wake up the microcontroller and detect events and their direction. The angling of the panels cause the inward facing and outward facing detectors to trigger at different times depending on the direction the person is walking.\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The Ray\xspace  detection algorithm and system decision flowchart. The algorithm is composed of four parts that handle reporting doorway events, processing detected events, processing time between events and heartbeats, and idle waiting. \relax }}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:software}{{4}{5}{The \sysname detection algorithm and system decision flowchart. The algorithm is composed of four parts that handle reporting doorway events, processing detected events, processing time between events and heartbeats, and idle waiting. \relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 3D printed solar panel and PCB housing enclosure with angled slots for solar energy harvesters and the Ray\xspace  prototype PCB.\relax }}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:mounting}{{5}{6}{3D printed solar panel and PCB housing enclosure with angled slots for solar energy harvesters and the \sysname prototype PCB.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Communication and Infrastructure}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Implementation}{6}{section.4}\protected@file@percent }
+\newlabel{sec:implementation}{{4}{6}{Implementation}{section.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Breakdown of the Ray\xspace  prototype costs at time of purchase for development.\relax }}{6}{table.caption.6}\protected@file@percent }
+\newlabel{tab:costbreakdown}{{1}{6}{Breakdown of the \sysname prototype costs at time of purchase for development.\relax }{table.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Evaluation}{7}{section.5}\protected@file@percent }
+\newlabel{sec:evaluation}{{5}{7}{Evaluation}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Controlled Experiments}{7}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Methodology and Claims}{7}{subsubsection.5.1.1}\protected@file@percent }
+\citation{colin2018cleancut}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Evaluation results with 9\xspace  test subjects having variable height, hair color, and clothing as described in \mbox  {Section\nobreakspace  {}\ref {sec:normal_operation}}. We tested 7\xspace  different doorways/hallways of varying light levels, dimensions, and flooring types, all of which had enough light to power Ray\xspace  . We ran multiple people through each of these 7\xspace  passageways one at a time, noting the detection accuracy and how many of the detected events had correct direction. All controlled events were detected so we display the direction accuracy of those events above. All these results show that an adequately lit Ray\xspace  occupancy sensor can accurately detect doorway events and their directions. \vspace  {1mm}  \textsuperscript  {*}Mixed Lighting --- Combined natural and artificial light \relax }}{8}{table.caption.7}\protected@file@percent }
+\newlabel{tab:detection}{{2}{8}{Evaluation results with \numPeople test subjects having variable height, hair color, and clothing as described in \secref {sec:normal_operation}. We tested \numDoors different doorways/hallways of varying light levels, dimensions, and flooring types, all of which had enough light to power \sysname . We ran multiple people through each of these \numDoors passageways one at a time, noting the detection accuracy and how many of the detected events had correct direction. All controlled events were detected so we display the direction accuracy of those events above. All these results show that an adequately lit \sysname occupancy sensor can accurately detect doorway events and their directions. \vspace {1mm} \\\textsuperscript {*}Mixed Lighting --- Combined natural and artificial light \relax }{table.caption.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Normal Operation}{8}{subsubsection.5.1.2}\protected@file@percent }
+\newlabel{sec:normal_operation}{{5.1.2}{8}{Normal Operation}{subsubsection.5.1.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Factors affecting Ray\xspace  's operation}{8}{subsubsection.5.1.3}\protected@file@percent }
+\newlabel{sec:confounding}{{5.1.3}{8}{Factors affecting \sysname 's operation}{subsubsection.5.1.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Light intensity:}{8}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Walking Speed:}{9}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Door Width and Height:}{9}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Multiple people:}{9}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The ``Spotlight'' effect:}{9}{section*.13}\protected@file@percent }
+\newlabel{subsubsec:range}{{5.1.3}{9}{Detection Range/Walking across, not through:}{section*.14}{}}
+\@writefile{toc}{\contentsline {paragraph}{Detection Range/Walking across, not through:}{9}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Lingering in the doorway:}{9}{section*.15}\protected@file@percent }
+\citation{EnOcean}
+\newlabel{fig:spotlight}{{6a}{10}{These traces show the solar panel output in the presence of the ``Spotlight'' effect. The top figure shows the response when someone walks \textit {across} the ``Spotlight'', while the bottom one shows the response when someone walks \textit {through} the door.\relax }{figure.caption.11}{}}
+\newlabel{sub@fig:spotlight}{{a}{10}{These traces show the solar panel output in the presence of the ``Spotlight'' effect. The top figure shows the response when someone walks \textit {across} the ``Spotlight'', while the bottom one shows the response when someone walks \textit {through} the door.\relax }{figure.caption.11}{}}
+\newlabel{fig:across}{{6b}{10}{This figure compares a person walking \textit {through} the doorway (top two traces) versus walking \textit {across or by} the doorway on the outside. There is a clear delay between the two solar panel channels when someone walks through, whereas the change is reflected simultaneously when someone walks by.\relax }{figure.caption.11}{}}
+\newlabel{sub@fig:across}{{b}{10}{This figure compares a person walking \textit {through} the doorway (top two traces) versus walking \textit {across or by} the doorway on the outside. There is a clear delay between the two solar panel channels when someone walks through, whereas the change is reflected simultaneously when someone walks by.\relax }{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Factors affecting Ray\xspace  operation. \relax }}{10}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:confounds}{{6}{10}{Factors affecting \sysname operation. \relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.4}Microbenchmarks}{10}{subsubsection.5.1.4}\protected@file@percent }
+\newlabel{sec:microbenchmarks}{{5.1.4}{10}{Microbenchmarks}{subsubsection.5.1.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Ray\xspace  deployment locations for the in-the-wild experiments. Each location features different lighting conditions as well as traffic patterns resulting from the adjoining labs, offices, and classrooms. \relax }}{10}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:floorplan}{{7}{10}{\sysname deployment locations for the in-the-wild experiments. Each location features different lighting conditions as well as traffic patterns resulting from the adjoining labs, offices, and classrooms. \relax }{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Ray{}s\xspace  in the Wild}{10}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Experimental Setup.}{10}{subsubsection.5.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Microbenchmarks for Ray\xspace  current consumption.\relax }}{11}{table.caption.16}\protected@file@percent }
+\newlabel{tab:microbenchmarks}{{3}{11}{Microbenchmarks for \sysname current consumption.\relax }{table.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces In-the-Wild deployment location descriptions and counts of ground truth events over the days deployed. \vspace  {1mm} \relax }}{11}{table.caption.18}\protected@file@percent }
+\newlabel{tab:ITWcategoryfreq}{{4}{11}{In-the-Wild deployment location descriptions and counts of ground truth events over the days deployed. \vspace {1mm} \relax }{table.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  The ground truth event timeline of our in-the-wild deployment and how it is divided into packet windows based on the when the packet is recieved immediately after processing the fifth event record within the packet window. The heart at event 4 represents a heartbeat event generated by Ray\xspace  when there have been no detected events for 2 minutes. The two examples of recorded event and missed ground truth events represent where two individuals walk through in quick succession, such that the sensor only identifies them as one event. This example provides a high-level view of how we compute the event statistics within a window. \relax }}{12}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:eventtimeline}{{8}{12}{The ground truth event timeline of our in-the-wild deployment and how it is divided into packet windows based on the when the packet is recieved immediately after processing the fifth event record within the packet window. The heart at event 4 represents a heartbeat event generated by \sysname when there have been no detected events for 2 minutes. The two examples of recorded event and missed ground truth events represent where two individuals walk through in quick succession, such that the sensor only identifies them as one event. This example provides a high-level view of how we compute the event statistics within a window. \relax }{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Data Collection and Analysis Method.}{12}{subsubsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Results.}{12}{subsubsection.5.2.3}\protected@file@percent }
+\citation{EnOcean}
+\citation{geissdoerfer2022learning}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Ray\xspace  in-the-wild deployment frequency of events by type at each deployment location and accuracy on how the system performed on classifying the simple ins and outs that were encountered over the deployment. \vspace  {1mm}  \textsuperscript  {*}Multi-Person Events --- This category of events represents only multiple persons traveling under the sensor going in the same direction. \relax }}{13}{table.caption.20}\protected@file@percent }
+\newlabel{tab:ITWresults}{{5}{13}{\sysname in-the-wild deployment frequency of events by type at each deployment location and accuracy on how the system performed on classifying the simple ins and outs that were encountered over the deployment. \vspace {1mm} \\\textsuperscript {*}Multi-Person Events --- This category of events represents only multiple persons traveling under the sensor going in the same direction. \relax }{table.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Commercial Sensor Comparison}{13}{subsubsection.5.2.4}\protected@file@percent }
+\newlabel{sec:enocean}{{5.2.4}{13}{Commercial Sensor Comparison}{subsubsection.5.2.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Related Work}{13}{section.6}\protected@file@percent }
+\newlabel{sec:related}{{6}{13}{Related Work}{section.6}{}}
+\citation{hnat2012doorjamb}
+\citation{tyndall2016occupancy,teixeira2007lightweight}
+\citation{fishkin2005hands}
+\citation{buettner2009activity}
+\citation{pan2016occupant}
+\citation{yangoccupancy2014}
+\citation{shih2016aures}
+\citation{EnOcean}
+\citation{Leviton}
+\citation{saffari2021battery}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Comparison of performance between the EnOcean and Ray\xspace  sensors at each location during the in-the-wild deployment. This comparison show how well each system was able to detect and monitor the number of people moving through a passageway. Due to high traffic and burst conditions that occur when class lets out, both systems are affected with being able to detect number of people passing through the passageway as EnOcean has a 2-minute blind spot after the first event is detected and Ray\xspace  has a 6 second event window where it is processing a single event and misses multiple people traveling within that event window. \vspace  {1mm} \relax }}{14}{table.caption.22}\protected@file@percent }
+\newlabel{tab:ITWEnOceanVWaldoresults}{{6}{14}{Comparison of performance between the EnOcean and \sysname sensors at each location during the in-the-wild deployment. This comparison show how well each system was able to detect and monitor the number of people moving through a passageway. Due to high traffic and burst conditions that occur when class lets out, both systems are affected with being able to detect number of people passing through the passageway as EnOcean has a 2-minute blind spot after the first event is detected and \sysname has a 6 second event window where it is processing a single event and misses multiple people traveling within that event window. \vspace {1mm} \relax }{table.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  The ground truth event timeline of our in-the-wild deployment and how Ray\xspace  and EnOcean sensors detect a sequence of events. This example provides a high level view of each systems detection accuracy and is based on actual data collected from our in-the-wild experiments. \relax }}{14}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:enoceanVwaldo}{{9}{14}{The ground truth event timeline of our in-the-wild deployment and how \sysname and EnOcean sensors detect a sequence of events. This example provides a high level view of each systems detection accuracy and is based on actual data collected from our in-the-wild experiments. \relax }{figure.caption.21}{}}
+\citation{yang2017ceilingsee}
+\citation{das2017non}
+\citation{narayanaloci}
+\citation{hnat2012doorjamb}
+\citation{sonicdoor-buildsys2017}
+\citation{debruin2013monjolo}
+\citation{xiang2013powering}
+\citation{martin2012doubledip}
+\citation{xu2017keh}
+\citation{kalantarian2016pedometers}
+\citation{campbell2014energy,billah2022solarwalk,li2018self}
+\citation{billah2022solarwalk}
+\citation{ma2019solargest}
+\citation{li2018self}
+\citation{yildirim2018ink}
+\citation{bhatti2017harvos}
+\citation{hester2017mayfly}
+\citation{van2016intermittent}
+\citation{jhester:ufop:sensys}
+\citation{oz1999electronic}
+\citation{stanton2000electronic}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion \& Future Work}{16}{section.7}\protected@file@percent }
+\newlabel{sec:discussion}{{7}{16}{Discussion \& Future Work}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusions}{16}{section.8}\protected@file@percent }
+\newlabel{sec:conclusions}{{8}{16}{Conclusions}{section.8}{}}
+\bibstyle{plainurl}
+\bibdata{persist}
+\bibcite{balsamo2015hibernus}{1}
+\bibcite{bhatti2017harvos}{2}
+\bibcite{billah2022solarwalk}{3}
+\bibcite{buettner2009activity}{4}
+\bibcite{campbell2014energy}{5}
+\bibcite{colin2016chain}{6}
+\bibcite{colin2018cleancut}{7}
+\bibcite{colin_edb}{8}
+\bibcite{das2017non}{9}
+\bibcite{debruin2013monjolo}{10}
+\bibcite{EnOcean}{11}
+\bibcite{fishkin2005hands}{12}
+\bibcite{desai2018}{13}
+\bibcite{sorber_tobias_2022}{14}
+\bibcite{geissdoerfer2022learning}{15}
+\bibcite{ekho-sensys}{16}
+\bibcite{jhester:ufop:sensys}{17}
+\bibcite{hester2017mayfly}{18}
+\bibcite{hester2016persistent}{19}
+\bibcite{hnat2012doorjamb}{20}
+\bibcite{kalantarian2016pedometers}{21}
+\bibcite{sonicdoor-buildsys2017}{22}
+\bibcite{Leviton}{23}
+\bibcite{li2018self}{24}
+\bibcite{Lucia:2015:Dino}{25}
+\bibcite{ma2019solargest}{26}
+\bibcite{martin2012doubledip}{27}
+\bibcite{narayanaloci}{28}
+\bibcite{oz1999electronic}{29}
+\bibcite{pan2016occupant}{30}
+\bibcite{ransford2011mementos}{31}
+\bibcite{saffari2021battery}{32}
+\bibcite{shih2016aures}{33}
+\bibcite{stanton2000electronic}{34}
+\bibcite{teixeira2007lightweight}{35}
+\bibcite{tyndall2016occupancy}{36}
+\bibcite{van2016intermittent}{37}
+\bibcite{xiang2013powering}{38}
+\bibcite{xu2017keh}{39}
+\bibcite{yangoccupancy2014}{40}
+\bibcite{yang2017ceilingsee}{41}
+\bibcite{yildirim2018ink}{42}
+\gdef \@abspage@last{19}

@@ -6,7 +6,7 @@ Ray is a batteryless, doorframe/passageway-mounted room-level occupancy monitori
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 100%; text-align: center;">
-      <img src="_scenario.png" alt="Ray Use Scenario" width="500" >
+      <img src="Video_Demos/figures/_scenario.png" alt="Ray Use Scenario" width="500" >
       <br>
       <strong>Ray Use Scenario/Concept</strong>
     </td>
@@ -42,6 +42,7 @@ All software provided is either C code compiled and ran on the MSP430FR5994 chip
 This folder contains the firmware needed for both the Ray sensor and for a basestation in order to gather the raw feature data that the sensor is collecting on a doorway/passageway that you wish to train your classification model for capturing direction and various corner cases such as pass-bys.  Have sample subjects walk in and out in a controlled manner so that you can capture what the raw features from your sensor look like under your lighting conditions and environment.  Collect this data using what is received at the basestation and the result for that data that you wish to train with in a CSV file for use in training the model in the next step.  
 
 ### 1_Train_Model
+This folder contains a python script called make
 
 ### 2_Controlled_Studies
 
@@ -58,12 +59,12 @@ In this section, we describe the steps it takes to build a physical Ray Sensor f
 <table style="width: 150%; border-collapse: collapse;">
   <tr>
     <td style="width: 50%; text-align: center;">
-      <img src="_waldoguts-anon-white.png" alt="Ray Use Scenario" width="400" >
+      <img src="Video_Demos/figures/_waldoguts-anon-white.png" alt="Ray Use Scenario" width="400" >
       <br>
       <strong>Ray PCB Close Up</strong>
     </td>
     <td style="width: 100%; text-align: center;">
-      <img src="_full_sensor_pcbopen.png" alt="Ray Use Scenario" width="600" >
+      <img src="Video_Demos/figures/_full_sensor_pcbopen.png" alt="Ray Use Scenario" width="600" >
       <br>
       <strong>Ray Full Sensor</strong>
     </td>
@@ -91,10 +92,16 @@ The Ray PCB also uses a TI CC1101 radio for communication that is to be connecte
 ### Installing on a doorway
 With all the parts assembled, tuned, connected, and attacked to the 3D printed enclosure, you can attach the Ray sensor to the top of a doorway/passageway frame with solar panels facing down anyway that you would like.  For our experiments, we affixed the 3d enclosure to a piece of wood with magnets screwed to the other side for easy in attaching and removing the sensor on different doorway/passageway frames as most within our office building had metal frames or structures to attach to.
 
+## Setting up a Base Station
+CC1101 Radio + Msp430 attached to a raspberryPi or a Laptop capturing data from the msp430 over serial and dumping to a file or to a database.... needs work
+
 ## Training the event classification model
 ### Gather Raw Feature Data
 
-### Train Model**
+
+### Train Model
+Need python3 pandas, graphviz, and scikit-learn installed before running the training model script.
+
 
 ### Translate Decision Tree Diagram to Implementation**
 Now that you 
@@ -106,10 +113,7 @@ The Ray firmware implements the detection algorithm with a trained decision tree
 
 ### Installing on a doorway
 
-## Setting up a Base Station
 
-### Parts and Assembly
-### Installing Firmware
-### Collecting Data?
+
 
 
