@@ -7,7 +7,7 @@ In this document, we provide the abstract of the work with highlights from our e
 # Abstract
 Room-level occupancy-tracking systems enable intelligent control of building functions like air conditioning and power delivery to adapt to the needs of their occupants. Unfortunately, existing occupancy-tracking systems are bulky, have short battery lifetimes, are not privacy-preserving, or only provide coarse-grain occupancy information. Furthermore, retrofitting existing infrastructures with wired sensors is prohibitively expensive.
 
-In this paper, we present **Ray, a batteryless, doorframe/passageway-mounted room-level occupancy monitoring sensor** that uses changes in indoor ambient light reflections to detect people entering and exiting a room or hallway and estimate direction of travel. We evaluated Ray in mixed lighting conditions on both sides of the doorway in an office-style setting, using subjects with a wide variety of physical characteristics. We conducted 881 controlled experiments in 7 doorways with 9 individuals and achieved a total detection accuracy of 100% and movement direction accuracy averaging 96.4%. Furthermore, we deployed Ray sensors for 64 days in 5 locations, comparing them with a commercial batteryless occupancy sensor. Ray outperformed the commercial sensor, particularly where traffic is moderate to heavy. Ray demonstrates that ambient light reflections provide both a promising low-cost, long-term sustainable option for monitoring how people use buildings and an exciting new research direction for batteryless computing.
+In this paper, we present **Ray, a batteryless, doorframe/passageway-mounted room-level occupancy monitoring sensor** that uses changes in indoor ambient light reflections to detect people entering and exiting a room or hallway and estimate direction of travel. We evaluated Ray in mixed lighting conditions on both sides of the doorway in an office-style setting, using subjects with a wide variety of physical characteristics. We conducted 881 controlled experiments in 7 doorways with 9 individuals and achieved a total detection accuracy of 100\% and movement direction accuracy averaging 96.4\%. Furthermore, we deployed Ray sensors for 64 days in 5 locations, comparing them with a commercial batteryless occupancy sensor. Ray outperformed the commercial sensor, particularly where traffic is moderate to heavy. Ray demonstrates that ambient light reflections provide both a promising low-cost, long-term sustainable option for monitoring how people use buildings and an exciting new research direction for batteryless computing.
 
 # Artifact Evaluation - For JSys Reviewers
 The artifacts associated with this paper consist of both hardware and software for building a functioning deployment of the Ray sensor. 
@@ -17,12 +17,10 @@ We are including the custom PCB designs, Bill of Materials, and 3D prototype hou
 As the claims of this work are of the effectiveness of our custom Ray sensor, it is hard to automate items for testing and evaluation without actually having a physical sensor built, trained, and deployed for you to test yourselves.  After speaking with the chair of the Artifact Evaluation Board, we determined the best way to show you that the usability and reproducibility of this work by providing the design files (raw and as pdfs for convenience) and making several demo videos to show the system working in both controlled demos, in the presence of confounding cases, and when comparing to a commercial occupancy sensor.  We hope they allow you enough insight to judge the effectiveness, claims, and reproducibility of the work as it is hard to exactly recreate some of these experiments as they were gathered from live individuals walking through passageways.
 
 # Folder/File Layout
-
-words
+This repo stores code, hardware files, and other technical documents for the project. Subdirectories are described below.
 
 ## Hardware
-
-words
+Hardware PCB version files, 3D enclosures, and documentation.
 
 ### 3D_Housing
  - Base Station Firmware
@@ -32,8 +30,7 @@ words
  - Ray Sensor Firmware
 
 ## Software
-
-words
+Source code, training code, testing code, and documentation.
 
 ### 1_Train_Model
  - Base Station Firmware
@@ -68,29 +65,5 @@ words
 ### Parts and Assembly
 ### Installing Firmware
 ### Collecting Data?
-
-
-
-
-
-
-
-
-
-
-# Waldo
-
-**Waldo** is a project whose goal is to accomplish batteryless occupancy detection.  
-
-This repo stores code, hardware files, and other technical documents for the project. Subdirectories are described below.
-
-### Software
-Source code, testing code, and documentation.
-
-### Hardware
-Hardware PCB version files, 3D enclosures, and documentation.
-
-### Papers
-All files, data, and figures used in submission attempts for this project.
 
 
