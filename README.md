@@ -35,10 +35,6 @@ This repo stores code, hardware files, and other technical documents for the pro
 ## Hardware
 This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor. 
 
-### 3D_Enclosure
-
-### PCB_Designs
-
 ## Software
 The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
 
@@ -69,7 +65,7 @@ words
 Our prototype hardware integrates a modular custom printed circuit board (PCB) housed in a 3D-printed plastic enclosure, four solar panels, and a TI CC1101 radio.
 
 **Custom PCB**
-The PCB for the Ray sensor consists of 3 modular parts, a Solar_Module, a MCU_Module, and a Radio_Module.  All design files for these modules and the Bill of Materials for all necessary PCB components can be found in the Hardware/PCB_Designs/ folder.  Boards can be fabricated at many places online, such as OSHpark etc, and the components can be populated by hand or by a manufacture as well.  Design files can be viewed directly by a program like Eagle, but PDFs have been made available for convenience of viewing.
+The PCB for the Ray sensor consists of 3 modular parts, a Solar_Module, a MCU_Module, and a Radio_Module.  All design files for these modules and the Bill of Materials for all necessary PCB components can be found in the Hardware/PCB_Designs/ folder.  Boards can be fabricated at many places online, such as OSHpark etc, and the components can be populated by hand or by a manufacture as well.  Design files can be viewed directly by a program like Eagle, but PDFs have been made available for convenience of viewing.  The Solar_Module attaches to the MCU_Module and the MCU_Module attaches to the Radio_Module.
 
 **3D Enclosure**
 The 3D printed mounting system is made of PLA plastic and contains the PCB, solar cells, and necessary wiring connecting them. Enclosure designs to house the PCB and attach the solar panels to can be found in Hardware/3D_Enclosure/PCB_Housing_and_20_DegBody_Assembly.stl with a second file Hardware/3D_Enclosure/PCB_Housing_Cap.stl to make a cap to cover the PCB during deployment.  The enclosure provides a nesting place for the solar cells, which angles the solar cell slots such that 2 of the 4 of the solar cells are pointed toward the entry, while the rest are pointed toward the exit.  
@@ -78,20 +74,13 @@ The 3D printed mounting system is made of PLA plastic and contains the PCB, sola
 The four (4) RL-55x70 solar panels need to be attached to the enclosure where they will be divided into two sets of two panels each, one facing inward (the direction the radio antenna is pointing) and one set facing outward.  The inward set of solar panels are connected in series and connected to the SOLAR1 terminal of the Solar Module PCB.  The outward facing panels are also connected in series and then added to the SOLAR2 terminal.
 
 **Tune the Detectors**
+Ray uses a detection circuit to determine when to wake up the microcontroller to assess the possible event.  The detector circuitry is tunable using trim potentiometers (trim pots) pre-installation in deployment.  You may find that depending on the lighting conditions of a particular doorway you are mounting the Ray sensor to that the sensitivity of the detector circuit's trim pots may need adjusting.  We found in our experiments that we did need to adjust the trim pots some for the general lighting conditions and found that they generally worked for other similar lighting conditions without needing to be readjusted for every doorway.  Using a screwdriver on TM1 for monitoring SOLAR1 or TM2 for monitoring SOLAR2 from the Solar_Module PCB schematics, twisting to one direction will move the detection threshold and make the detectors more sensitive while twisting in the opposite direction will make them less sensitive.
 
-
-
-
-
-
-
-The detector circuitry is made using nano-power comparators (TI TLV3691) and a passive RC filter network. In order to give us flexibility, the RC filter network is tunable using trim potentiometers pre-installation or digital potentiometers in deployment. The Ray PCB also has a TI CC1101 radio for communication that is to be connected to the Radio_Module in Hardware/PCB_Designs/. 
-
-
-
-Ray uses a detection circuit that wakes up the microcontroller
+**Attaching a Radio**
+The Ray PCB also uses a TI CC1101 radio for communication that is to be connected to the Radio_Module in Hardware/PCB_Designs/. For our purposes, we considered the direction the antenna was pointing would be considered *inward* when mounting the sensor for practice, but logically you could train and adjust the code if you prefer it to point the other direction.
 
 ### Training the event classification model
+Not that you 
 
 ### Installing Firmware
 The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
