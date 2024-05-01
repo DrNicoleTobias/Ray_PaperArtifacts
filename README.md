@@ -36,20 +36,17 @@ This repo stores code, hardware files, and other technical documents for the pro
 This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor. 
 
 ## Software
-The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
+All software provided is either C code compiled and ran on the MSP430FR5994 chips used for our sensor and base station or python3 scripting code that is processed on a base station or laptop. The following subfolders contain the code needed to gather the raw features from a Ray sensor (0_Get_Features) and train a decision tree classifier model using those features (1_Train_Model).  Once trained, the model will need to be implemented in the experiment code subfolders 2_Controlled_Studies and 3_Uncontrolled_Studies.
 
 ### 0_Get_Features
- - Base Station Firmware
- - Ray Sensor Firmware
+This folder contains the firmware needed for both the Ray sensor and for a basestation in order to gather the raw feature data that the sensor is collecting on a doorway/passageway that you wish to train your classification model for capturing direction and various corner cases such as pass-bys.  Have sample subjects walk in and out in a controlled manner so that you can capture what the raw features from your sensor look like under your lighting conditions and environment.  Collect this data using what is received at the basestation and the result for that data that you wish to train with in a CSV file for use in training the model in the next step.  
 
 ### 1_Train_Model
 
 ### 2_Controlled_Studies
- - Base Station Firmware
- - Ray Sensor Firmware
+
 ### 3_Uncontrolled_Studies
- - Base Station Firmware
- - Ray Sensor Firmware
+
 
 ## Video_Demos
 
@@ -90,6 +87,8 @@ Now that you
 
 ### Installing Firmware
 The Ray firmware implements the detection algorithm with a trained decision tree for event classification discussed in Section 3. Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.
+
+The Ray firmware implements the detection algorithm with a trained decision tree for event classification once it is deployed.  Monitoring the interrupts from the detectors and deducing the direction of motion upon triggering are the main tasks of the system. The firmware is designed to be ultra-low power, even in active mode, and has low computational complexity, offloading the bulk of the detection to the hardware circuits. The Ray firmware is composed of 691 lines of commented C code, compiling to a 4459 byte image. This code size comprises only 1.7\% of the available code space on the MSP430FR5994 (256KB), leaving ample room for implementing custom tasks, recognizers, or multiprogramming operating systems.  
 
 ### Installing on a doorway
 
