@@ -1,7 +1,0 @@
-Format for all files are:
-
-	Time,Raw_Facing_Outside,Raw_Facing_Inside,HiLo_Outside,LoHi_Outside,HiLo_Inside,LoHi_Inside
-
-These datafiles were gathered on 06-14-2017 for the BuildSys 2017 submission. A WaldoRevC was used along with a Salea logic analyzer to get data.
-
-The action performed is listed in the filename along with the number of averages from the original datafile.
