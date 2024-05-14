@@ -34,6 +34,9 @@ This repo stores code, hardware files, and other technical documents for the pro
 ## Hardware
 This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor.
 
+##Review_Material
+This folder contains some of the additional artifact information for the working sensor including a Video Demo (.mp4) and a sampling of the data collected from both the controlled and uncontrolled experiments of the paper.  The Video Demo showcases the sensor working in both normal and confounding cases as well as demonstrating how it preforms beside the commercial sensor that we used in the uncontrolled deployments.  Due to the nature of this project, much of the data gathering and ground truth labeling required manual intervention and processing to account for the amount of corner cases and fuzzy timing between two different sensors and ground truth.  A sampling of the manual data gathering for the controlled and uncontrolled experiments has been provided and the resulting excel files for the uncontrolled experiments are provided for review.  There are no scripts to run, table data for the uncontrolled experiments (Table 6) came directly from excel formulas in the excel files for each location.
+
 ## Software
 All software provided is either C code compiled and run on the MSP430FR5994 chips used for our sensor and base station or Python3 scripting code that is processed on a base station or laptop. Because there are variations in component quality and in doorway and lighting conditions, users want to train the classifier model on data more closely related to the test environment to improve accuracy. In that event, The following subfolders contain the code needed to gather the raw features from a Ray sensor (0_Get_Features) and train a new decision tree classifier model using those features (1_Train_Model). Once trained, the model will need to be manually implemented in the experiment code subfolders 2_Controlled_Studies and 3_Uncontrolled_Studies (specific locations to change are mentioned in those folders' ReadMe documentation.
 
@@ -128,7 +131,6 @@ The Ray firmware is designed to be ultra-low power, even in active mode, and has
 3. Connect the sensor to the Programmer pins on the LaunchPad (some jumpers may need to be removed to accomplish this) and plug them in to the appropriate programming pins on the MCU_Module.
 4. Use "make install" to load the program into your device.
 5. Detach from the programmer and reconnect the PCB in the enclosure and the unit is ready to be deployed. (Skip steps 3 and 5 if programming a MSP430 LaunchPad for a base station)
-
 
 
 
