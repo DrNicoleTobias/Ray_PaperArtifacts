@@ -41,7 +41,7 @@ All software provided is either C code compiled and run on the MSP430FR5994 chip
 This folder contains the firmware for both the Ray sensor and for a base station for gathering raw training data. The data gathered by the base station and sensor firmware here is intended for training a supervised classification model, in our case a decision tree model. This model should capture directional information from many individual events of common in and out events and can also include some additional example training data for some confounding, yet common, cases such as pass-by events. Have sample subjects walk in and out in a controlled manner to capture what the raw features from the sensor look like under local lighting conditions and environment. Collect this data using what is received at the base station and the result for that data that you wish to train with in a CSV file for use in training the model in the next step.
 
 ### 1_Train_Model
-This folder contains a python script called makedecisions.py that will use the CSV file of data gathered from the 0_Get_Features scripts/code in order to train a new decision tree to update the models for testing or real world deployment.
+This folder contains a Python script called makedecisions.py that will use the CSV file of data gathered from the 0_Get_Features scripts/code in order to train a new decision tree to update the models for testing or real world deployment.
 
 ### 2_Controlled_Studies
 This folder contains the firmware for both the Ray sensor and for a base station to receive packets from a Ray Sensor using the CC1101 Radio with a MSP430FR994 LaunchPad where the Ray Sensor sends a single packet for individual controlled events.
