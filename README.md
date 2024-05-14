@@ -34,7 +34,7 @@ This repo stores code, hardware files, and other technical documents for the pro
 ## Hardware
 This folder contains all of the custom PCB Eagle design files (PDFs of the schematic and board design files are also included for reviewer convenience), Bill of Materials (BOM), and 3D prototype housing/enclosures files used to create a Ray sensor.
 
-##Review_Material
+## Review_Material
 This folder contains some of the additional artifact information for the working sensor including a Video Demo (.mp4) and a sampling of the data collected from both the controlled and uncontrolled experiments of the paper.  The Video Demo showcases the sensor working in both normal and confounding cases as well as demonstrating how it preforms beside the commercial sensor that we used in the uncontrolled deployments.  Due to the nature of this project, much of the data gathering and ground truth labeling required manual intervention and processing to account for the amount of corner cases and fuzzy timing between two different sensors and ground truth.  A sampling of the manual data gathering for the controlled and uncontrolled experiments has been provided and the resulting excel files for the uncontrolled experiments are provided for review.  There are no scripts to run, table data for the uncontrolled experiments (Table 6) came directly from excel formulas in the excel files for each location.
 
 ## Software
