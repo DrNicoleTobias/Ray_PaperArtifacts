@@ -1,0 +1,38 @@
+# Review_Materials
+
+This folder contains some of the additional artifact information for the working sensor including a Video Demo (.mp4) and a sampling of the data collected from both the controlled and uncontrolled experiments of the paper. 
+
+## Controlled Tests
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 100%; text-align: center;">
+      <img src="Review_Material/figures/walkingin.png" alt="Testing the Sensor: Controlled" width="500" >
+      <br>
+      <strong>Testing the Sensor: Controlled</strong>
+    </td>
+  </tr>
+</table>
+
+## Video Demo
+The Video Demo showcases the Ray sensor operating during a range of activities. These include people walking through doorways under the sensor, pass-by events where a person walks near the sensor but does not pass under it, and confounding cases like lingering and many people walking in a tight group. We also demonstrate in the video a comparison between the sensor and the commercially available EnOcean sensor (a batteryless PIR-based occupancy sensor), showing that Ray is able to more accurately estimate the number of people during higher traffic conditions.
+
+## Uncontrolled Deployment
+
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 100%; text-align: center;">
+      <img src="Review_Material/figures/deployment_setup.png" alt="Deployment Setup" width="500" >
+      <br>
+      <strong>Deployment Setup</strong>
+    </td>
+  </tr>
+</table>
+
+Due to the nature of this project, much of the data gathering and ground truth labeling required manual intervention and processing to account for the amount of corner cases and fuzzy timing between two different sensors and ground truth. A sampling of the manual data gathering for the controlled and uncontrolled experiments has been provided and the resulting excel files for the uncontrolled experiments are provided for review. There are no scripts to run, table data for the uncontrolled experiments (Tables 5 and 6) came directly from excel formulas in the excel files for each location.
+
+### Ground Truth
+Ground truth was captured by an off the shelf Wyze camera that was constantly powered and capturing data.  Video was collected, processed to pull out any frames with movement, and then manually labeled.  The field of view was different for the camera than for either sensor and with reliable power had a more accurate sense of time.  This made matching up our sensor data and commercial sensor data to compare a bit of a manual process as well.
+
+### Our Sensor vs Ground Truth
+
+### Our Sensor vs Commercial Sensor (EnOcean)
