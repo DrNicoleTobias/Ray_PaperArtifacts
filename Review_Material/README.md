@@ -6,7 +6,7 @@ This folder contains some of the additional artifact information for the working
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 100%; text-align: center;">
-      <img src="Review_Material/figures/walkingin.png" alt="Testing the Sensor: Controlled" width="500" >
+      <img src="figures/walkingin.png" alt="Testing the Sensor: Controlled" width="500" >
       <br>
       <strong>Testing the Sensor: Controlled</strong>
     </td>
@@ -21,7 +21,7 @@ The Video Demo showcases the Ray sensor operating during a range of activities. 
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 100%; text-align: center;">
-      <img src="Review_Material/figures/deployment_setup.png" alt="Deployment Setup" width="500" >
+      <img src="figures/deployment_setup.png" alt="Deployment Setup" width="500" >
       <br>
       <strong>Deployment Setup</strong>
     </td>
@@ -34,5 +34,24 @@ Due to the nature of this project, much of the data gathering and ground truth l
 Ground truth was captured by an off the shelf Wyze camera that was constantly powered and capturing data.  Video was collected, processed to pull out any frames with movement, and then manually labeled.  The field of view was different for the camera than for either sensor and with reliable power had a more accurate sense of time.  This made matching up our sensor data and commercial sensor data to compare a bit of a manual process as well.
 
 ### Our Sensor vs Ground Truth
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 100%; text-align: center;">
+      <img src="figures/Uncontrolled_Sensor_sample_timeline.pdf" alt="Example Sensor Event Timeline" width="500" >
+      <br>
+      <strong>Example Sensor Event Timeline</strong>
+    </td>
+  </tr>
+</table>
 
 ### Our Sensor vs Commercial Sensor (EnOcean)
+
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 100%; text-align: center;">
+      <img src="figures/enocean_v_waldo_v_gt.pdf" alt="Example Sensor Comparison Timeline" width="500" >
+      <br>
+      <strong>Example Sensor Comparison Timeline</strong>
+    </td>
+  </tr>
+</table>
