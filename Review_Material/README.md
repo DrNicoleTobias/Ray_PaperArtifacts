@@ -15,7 +15,11 @@ This folder contains some of the additional artifact information for the working
 For the controlled experiments we collected data manually with the sensor sending out a single packet after each detected event.  We asked a subject to walk through the passageway where we would record the direction classified by out sensor in the column for the ground truth of the sensor as you can see in some of the samples provided in controlled_data_samples.pdf.  Most of the recordings were pretty straight forward, but occasionally other people (not affiliated with the experiment) would traverse the hallway or near the doorway and would trigger the sensor.  When this occurred, we marked that at a clobbered packet, discounted that info as it was not part of the control, and requested the subject to do another clean run to make up for the clobbered test.  This file shows that our sensor did well at detecting all of the events but occasionally classified them incorrectly.
 
 ## Video Demo
-<video src='SensorDemo.mp4' width=180/>
+
+<video width="320" height="240" controls>
+  <source src="SensorDemo.mp4" type="video/mp4">
+</video>
+
 The Video Demo showcases the Ray sensor operating during a range of activities. These include people walking through doorways under the sensor, pass-by events where a person walks near the sensor but does not pass under it, and confounding cases like lingering and many people walking in a tight group. We also demonstrate in the video a comparison between the sensor and the commercially available EnOcean sensor (a batteryless PIR-based occupancy sensor), showing that Ray is able to more accurately estimate the number of people during higher traffic conditions.
 
 ## Uncontrolled Deployment
