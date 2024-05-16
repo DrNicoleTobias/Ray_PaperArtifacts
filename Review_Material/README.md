@@ -6,7 +6,7 @@ This folder contains some of the additional artifact information for the working
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 100%; text-align: center;">
-      <img src="figures/walkingin.pdf" alt="Testing the Sensor: Controlled" width="500" >
+      <img src="figures/walkingin.png" alt="Testing the Sensor: Controlled" width="500" >
       <br>
       <strong>Testing the Sensor: Controlled</strong>
     </td>
@@ -37,7 +37,7 @@ Ground truth was captured by an off the shelf Wyze camera that was constantly po
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 100%; text-align: center;">
-      <img src="figures/Uncontrolled_Sensor_sample_timeline.pdf" alt="Example Sensor Event Timeline" width="500" >
+      <img src="figures/Uncontrolled_Sensor_sample_timeline.png" alt="Example Sensor Event Timeline" width="500" >
       <br>
       <strong>Example Sensor Event Timeline</strong>
     </td>
@@ -49,7 +49,7 @@ Ground truth was captured by an off the shelf Wyze camera that was constantly po
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 100%; text-align: center;">
-      <img src="figures/enocean_v_waldo_v_gt.pdf" alt="Example Sensor Comparison Timeline" width="500" >
+      <img src="figures/enocean_v_waldo_v_gt.png" alt="Example Sensor Comparison Timeline" width="500" >
       <br>
       <strong>Example Sensor Comparison Timeline</strong>
     </td>
