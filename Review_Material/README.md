@@ -6,7 +6,7 @@ This folder contains some of the additional artifact information for the working
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
     <td style="width: 100%; text-align: center;">
-      <img src="figures/walkingin.png" alt="Testing the Sensor: Controlled" width="500" >
+      <img src="figures/walkingin.pdf" alt="Testing the Sensor: Controlled" width="500" >
       <br>
       <strong>Testing the Sensor: Controlled</strong>
     </td>
