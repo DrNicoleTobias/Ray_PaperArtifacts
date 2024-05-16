@@ -16,8 +16,6 @@ For the controlled experiments we collected data manually with the sensor sendin
 
 ## Video Demo
 
-SensorDemo.mp4
-
 The Video Demo (SensorDemo.mp4) showcases the Ray sensor operating during a range of activities. These include people walking through doorways under the sensor, pass-by events where a person walks near the sensor but does not pass under it, and confounding cases like lingering and many people walking in a tight group. We also demonstrate in the video a comparison between the sensor and the commercially available EnOcean sensor (a batteryless PIR-based occupancy sensor), showing that Ray is able to more accurately estimate the number of people during higher traffic conditions.
 
 ## Uncontrolled Deployment
